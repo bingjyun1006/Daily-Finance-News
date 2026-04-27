@@ -96,7 +96,7 @@ US_TICKER_CN_NAMES = {
 
 # 靜態網站設定
 SITE_HASH = "f3k9m2qx"
-SITE_BASE_URL = "https://bing.github.io/Daily-Finance-News"
+SITE_BASE_URL = "https://bingjyun1006.github.io/Daily-Finance-News"
 
 # 產業動態關鍵字（空產業當天不顯示）
 INDUSTRY_KEYWORDS = {
