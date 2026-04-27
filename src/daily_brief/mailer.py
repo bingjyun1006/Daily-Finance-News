@@ -14,20 +14,59 @@ def send_email(report_url: str, date_str: str) -> None:
 
     recipients = [r.strip() for r in recipient_env.split(",") if r.strip()]
 
-    subject = f"[金融早報] {date_str}"
+    subject = f"Daily Financial News | {date_str}"
 
     body_html = f"""<!DOCTYPE html>
 <html>
-<body style="font-family: sans-serif; background: #1a1a2e; color: #e0e0e0; padding: 32px; margin: 0;">
-  <h2 style="color: #658DC6; margin-bottom: 8px;">📊 今日金融早報已出爐</h2>
-  <p style="color: #aaa; margin-bottom: 24px;">{date_str}</p>
-  <a href="{report_url}"
-     style="display: inline-block; background: #658DC6; color: white;
-            padding: 12px 28px; border-radius: 6px; text-decoration: none;
-            font-size: 16px; font-weight: bold;">
-    查看今日報告 →
-  </a>
-  <p style="color: #555; font-size: 12px; margin-top: 28px;">{report_url}</p>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0; padding:0; background-color:#f0f2f7; font-family:'Helvetica Neue', Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0f2f7; padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#4a6fa5 0%,#658DC6 100%); padding:32px 40px;">
+              <p style="margin:0; color:rgba(255,255,255,0.75); font-size:12px; letter-spacing:2px; text-transform:uppercase;">Market Intelligence</p>
+              <h1 style="margin:6px 0 0; color:#ffffff; font-size:22px; font-weight:600; letter-spacing:0.5px;">Daily Financial News</h1>
+              <p style="margin:6px 0 0; color:rgba(255,255,255,0.7); font-size:13px;">{date_str}</p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:36px 40px;">
+              <p style="margin:0 0 6px; color:#333333; font-size:16px; font-weight:500;">早安！新的一天加油～</p>
+              <p style="margin:0 0 28px; color:#666666; font-size:14px; line-height:1.6;">請抽空閱讀新一份市場資訊 :)</p>
+
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background:linear-gradient(135deg,#4a6fa5 0%,#658DC6 100%); border-radius:8px;">
+                    <a href="{report_url}"
+                       style="display:inline-block; padding:14px 32px; color:#ffffff; text-decoration:none;
+                              font-size:15px; font-weight:600; letter-spacing:0.3px;">
+                      查看今日報告 →
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#f8f9fb; border-top:1px solid #eaedf2; padding:16px 40px;">
+              <p style="margin:0; color:#aab0bc; font-size:11px;">
+                {report_url}
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>"""
 
