@@ -81,3 +81,50 @@ def send_email(report_url: str, date_str: str) -> None:
         server.sendmail(gmail_address, recipients, msg.as_string())
 
     print(f"[Mail] Sent to {', '.join(recipients)}")
+
+
+def send_failure_email() -> None:
+    gmail_address = os.environ.get("GMAIL_ADDRESS")
+    gmail_app_password = os.environ.get("GMAIL_APP_PASSWORD")
+    recipient_env = os.environ.get("RECIPIENT_EMAIL", gmail_address)
+
+    if not gmail_address or not gmail_app_password:
+        print("[Mail] Missing credentials, cannot send failure notification")
+        return
+
+    recipients = [r.strip() for r in recipient_env.split(",") if r.strip()]
+
+    body_html = """<!DOCTYPE html>
+<html>
+<body style="font-family:sans-serif;background:#f0f2f7;padding:32px;margin:0;">
+  <table width="560" cellpadding="0" cellspacing="0"
+         style="background:#fff;border-radius:12px;overflow:hidden;
+                box-shadow:0 2px 12px rgba(0,0,0,0.08);margin:0 auto;">
+    <tr>
+      <td style="background:linear-gradient(135deg,#c0392b,#e74c3c);padding:28px 36px;">
+        <h2 style="margin:0;color:#fff;font-size:18px;">⚠️ 金融早報產生失敗</h2>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:28px 36px;">
+        <p style="margin:0;color:#555;font-size:14px;line-height:1.7;">
+          今日的 GitHub Actions workflow 執行失敗，早報未能產生。<br>
+          請至 GitHub Actions 頁面查看錯誤詳情。
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>"""
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = "⚠️ 金融早報產生失敗"
+    msg["From"] = gmail_address
+    msg["To"] = ", ".join(recipients)
+    msg.attach(MIMEText(body_html, "html", "utf-8"))
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(gmail_address, gmail_app_password)
+        server.sendmail(gmail_address, recipients, msg.as_string())
+
+    print(f"[Mail] Failure notification sent to {', '.join(recipients)}")

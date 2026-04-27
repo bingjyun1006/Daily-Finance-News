@@ -186,6 +186,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .radar-reason { color: var(--text-sub); font-size: 0.82em; margin: 3px 0 2px; }
     .radar-basis  { font-size: 0.75em; color: var(--text-dim); }
 
+    /* ── NARRATIVE ── */
+    .narrative-text {
+      font-size: 0.88em; line-height: 1.8;
+      color: var(--text); white-space: pre-line;
+    }
+
     /* ── FOOTER ── */
     .footer {
       text-align: center; color: var(--text-dim);
@@ -214,6 +220,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   </div>
   {% endif %}
 </div>
+
+<!-- 今日市場解析 -->
+{% set narrative = processed.get('market_narrative', '') %}
+{% if narrative %}
+<div class="card" style="border-left: 3px solid var(--amber);">
+  <div class="section-title amber">今日市場解析</div>
+  <p class="narrative-text">{{ narrative }}</p>
+</div>
+{% endif %}
 
 <!-- 市場概覽 -->
 <div class="card">
