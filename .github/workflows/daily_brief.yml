@@ -35,10 +35,11 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+          git fetch origin master
+          git rebase origin/master
           git add docs/
           git diff --staged --quiet || git commit -m "report: $(date -u +%Y-%m-%d)"
-          git pull --rebase origin master
-          git push
+          git push origin master
 
       - name: Wait for GitHub Pages deployment
         run: sleep 90
