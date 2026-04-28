@@ -11,6 +11,33 @@ IMPORTANT_EVENTS = [
     "PPI", "ISM", "Consumer Confidence", "Housing Starts",
 ]
 
+EVENT_CN = {
+    "Non-Farm":          "非農就業",
+    "NFP":               "非農就業",
+    "CPI":               "消費者物價指數 CPI",
+    "PCE":               "個人消費支出 PCE",
+    "PPI":               "生產者物價指數 PPI",
+    "FOMC":              "Fed 利率決議",
+    "Interest Rate":     "Fed 利率決議",
+    "GDP":               "GDP 季增率",
+    "ISM Manufacturing": "ISM 製造業 PMI",
+    "ISM Services":      "ISM 服務業 PMI",
+    "ISM":               "ISM PMI",
+    "PMI":               "採購經理人指數 PMI",
+    "Unemployment":      "失業率",
+    "Retail Sales":      "零售銷售",
+    "Consumer Confidence": "消費者信心指數",
+    "Housing Starts":    "新屋開工",
+    "Fed":               "Fed 官員談話",
+}
+
+
+def _translate_event(name: str) -> str:
+    for keyword, cn in EVENT_CN.items():
+        if keyword.lower() in name.lower():
+            return cn
+    return name
+
 
 def fetch_economic_calendar() -> list[dict]:
     api_key = os.environ.get("FINNHUB_API_KEY", "")
@@ -40,7 +67,8 @@ def fetch_economic_calendar() -> list[dict]:
                 date_raw = e.get("time", "")
                 events.append({
                     "date": date_raw[:10],
-                    "name": name,
+                    "name": _translate_event(name),
+                    "name_en": name,
                     "country": e.get("country", ""),
                     "impact": impact,
                 })
