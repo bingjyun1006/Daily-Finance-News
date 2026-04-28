@@ -20,8 +20,12 @@ RSS_SOURCES = [
     # 總經（測試中）
     {"name": "Investing.com", "url": "https://tw.investing.com/rss/news.rss",                        "category": "總經"},
     {"name": "Fed官方",       "url": "https://www.federalreserve.gov/feeds/press_all.xml",            "category": "總經"},
+    {"name": "US Treasury",   "url": "https://home.treasury.gov/news/press-releases-rss",            "category": "總經"},
+    {"name": "Motley Fool",   "url": "https://www.fool.com/feeds/index.aspx",                        "category": "美股"},
     # 國際
-    {"name": "BBC Business",  "url": "https://feeds.bbci.co.uk/news/business/rss.xml",                "category": "國際"},
+    {"name": "BBC Business",      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",            "category": "國際"},
+    {"name": "Guardian Business", "url": "https://www.theguardian.com/uk/business/rss",               "category": "國際"},
+    {"name": "DW Business",       "url": "https://rss.dw.com/rdf/rss-en-bus",                        "category": "國際"},
     # 科技 & AI
     {"name": "TechCrunch",    "url": "https://techcrunch.com/feed/",                                  "category": "科技"},
     {"name": "The Verge",     "url": "https://www.theverge.com/rss/index.xml",                        "category": "科技"},
