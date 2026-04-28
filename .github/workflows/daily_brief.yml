@@ -26,6 +26,7 @@ jobs:
         run: python main.py --no-email
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
 
       - name: Build archive index
         working-directory: src/daily_brief
