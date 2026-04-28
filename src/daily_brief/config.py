@@ -1,13 +1,23 @@
 RSS_SOURCES = [
+    # 台股
     {"name": "鉅亨網",        "url": "https://news.cnyes.com/rss/id/headline",                         "category": "台股"},
     {"name": "經濟日報",      "url": "https://money.udn.com/rssfeed/news/1001/5591",                   "category": "台股"},
     {"name": "工商時報",      "url": "https://www.ctee.com.tw/feed",                                   "category": "台股"},
-    {"name": "BBC Business",  "url": "https://feeds.bbci.co.uk/news/business/rss.xml",                "category": "國際"},
+    {"name": "MOPS",          "url": "https://mops.twse.com.tw/mops/web/rss",                         "category": "台股"},
+    {"name": "MoneyDJ",       "url": "https://www.moneydj.com/rss/rss.aspx?a=news",                  "category": "台股"},
+    {"name": "今周刊",        "url": "https://www.businesstoday.com.tw/rss/rss.aspx",                 "category": "台股"},
+    # 美股 & 總經
     {"name": "CNBC",          "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html",         "category": "美股"},
     {"name": "Reuters",       "url": "https://feeds.reuters.com/reuters/businessNews",                "category": "美股"},
-    {"name": "MOPS",          "url": "https://mops.twse.com.tw/mops/web/rss",                         "category": "台股"},
-    {"name": "Fed官方",       "url": "https://www.federalreserve.gov/feeds/press_all.xml",            "category": "總經"},
     {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/rss/topstories",                      "category": "美股"},
+    {"name": "MarketWatch",   "url": "https://feeds.marketwatch.com/marketwatch/topstories/",         "category": "美股"},
+    # 國際
+    {"name": "BBC Business",  "url": "https://feeds.bbci.co.uk/news/business/rss.xml",                "category": "國際"},
+    # 科技 & AI
+    {"name": "TechCrunch",    "url": "https://techcrunch.com/feed/",                                  "category": "科技"},
+    {"name": "The Verge",     "url": "https://www.theverge.com/rss/index.xml",                        "category": "科技"},
+    # 總經
+    {"name": "Fed官方",       "url": "https://www.federalreserve.gov/feeds/press_all.xml",            "category": "總經"},
 ]
 
 # 市場概覽：大盤指數 + 總經指標（無個股）
