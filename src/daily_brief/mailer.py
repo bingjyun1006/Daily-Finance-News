@@ -14,7 +14,7 @@ def send_email(report_url: str, date_str: str) -> None:
 
     recipients = [r.strip() for r in recipient_env.split(",") if r.strip()]
 
-    subject = "早安!野原一家加油!抽空來看今天的市場資訊~"
+    subject = f"早安!野原一家加油!抽空來看今天的市場資訊~ [{date_str}]"
 
     body_html = f"""<!DOCTYPE html>
 <html>
