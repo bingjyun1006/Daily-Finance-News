@@ -1,23 +1,35 @@
 RSS_SOURCES = [
-    # 台股
+    # 台股（確定可用）
     {"name": "鉅亨網",        "url": "https://news.cnyes.com/rss/id/headline",                         "category": "台股"},
     {"name": "經濟日報",      "url": "https://money.udn.com/rssfeed/news/1001/5591",                   "category": "台股"},
     {"name": "工商時報",      "url": "https://www.ctee.com.tw/feed",                                   "category": "台股"},
     {"name": "MOPS",          "url": "https://mops.twse.com.tw/mops/web/rss",                         "category": "台股"},
+    {"name": "中央社財經",    "url": "https://www.cna.com.tw/cna/rss/cat/biz.xml",                    "category": "台股"},
+    # 台股（測試中）
     {"name": "MoneyDJ",       "url": "https://www.moneydj.com/rss/rss.aspx?a=news",                  "category": "台股"},
     {"name": "今周刊",        "url": "https://www.businesstoday.com.tw/rss/rss.aspx",                 "category": "台股"},
-    # 美股 & 總經
+    {"name": "財訊快報",      "url": "https://www.wealth.com.tw/rss.aspx",                            "category": "台股"},
+    {"name": "天下雜誌",      "url": "https://www.cw.com.tw/rss",                                     "category": "台股"},
+    {"name": "商業周刊",      "url": "https://www.businessweekly.com.tw/rss",                         "category": "台股"},
+    # 美股
     {"name": "CNBC",          "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html",         "category": "美股"},
     {"name": "Reuters",       "url": "https://feeds.reuters.com/reuters/businessNews",                "category": "美股"},
     {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/rss/topstories",                      "category": "美股"},
     {"name": "MarketWatch",   "url": "https://feeds.marketwatch.com/marketwatch/topstories/",         "category": "美股"},
+    {"name": "Benzinga",      "url": "https://www.benzinga.com/feed",                                 "category": "美股"},
+    # 總經（測試中）
+    {"name": "Investing.com", "url": "https://tw.investing.com/rss/news.rss",                        "category": "總經"},
+    {"name": "Fed官方",       "url": "https://www.federalreserve.gov/feeds/press_all.xml",            "category": "總經"},
     # 國際
     {"name": "BBC Business",  "url": "https://feeds.bbci.co.uk/news/business/rss.xml",                "category": "國際"},
     # 科技 & AI
     {"name": "TechCrunch",    "url": "https://techcrunch.com/feed/",                                  "category": "科技"},
     {"name": "The Verge",     "url": "https://www.theverge.com/rss/index.xml",                        "category": "科技"},
-    # 總經
-    {"name": "Fed官方",       "url": "https://www.federalreserve.gov/feeds/press_all.xml",            "category": "總經"},
+    {"name": "VentureBeat",   "url": "https://venturebeat.com/feed/",                                 "category": "科技"},
+    {"name": "Ars Technica",  "url": "https://feeds.arstechnica.com/arstechnica/index/",              "category": "科技"},
+    {"name": "Wired",         "url": "https://www.wired.com/feed/rss",                                "category": "科技"},
+    {"name": "iThome",        "url": "https://www.ithome.com.tw/rss",                                 "category": "科技"},
+    {"name": "數位時代",      "url": "https://www.bnext.com.tw/rss",                                  "category": "科技"},
 ]
 
 # 市場概覽：大盤指數 + 總經指標（無個股）
