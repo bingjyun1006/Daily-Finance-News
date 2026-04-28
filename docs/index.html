@@ -2,15 +2,73 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>金融早報</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Financial News</title>
   <style>
-    body { font-family: sans-serif; background: #1a1a2e; color: #e0e0e0;
-           display: flex; align-items: center; justify-content: center;
-           height: 100vh; margin: 0; }
-    p { color: #658DC6; font-size: 18px; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-sub: #adbac7; --text-dim: #768390;
+      --blue: #658DC6; --amber: #e3b341;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; padding: 40px 16px;
+    }
+    .container { max-width: 560px; margin: 0 auto; }
+    .header { margin-bottom: 32px; }
+    .header h1 { font-size: 1.4em; font-weight: 700; color: var(--text); }
+    .header p { font-size: 0.82em; color: var(--text-dim); margin-top: 6px; }
+    .latest-btn {
+      display: inline-block; margin: 20px 0 32px;
+      background: var(--blue); color: #fff; text-decoration: none;
+      padding: 11px 24px; border-radius: 8px;
+      font-size: 0.9em; font-weight: 600;
+    }
+    .archive-title {
+      font-size: 0.75em; font-weight: 700; color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .list {
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    }
+    .row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px; border-bottom: 1px solid var(--border);
+      text-decoration: none; color: var(--text);
+      transition: background 0.15s;
+    }
+    .row:last-child { border-bottom: none; }
+    .row:hover { background: var(--surface); }
+    .row-date { font-size: 0.88em; font-variant-numeric: tabular-nums; }
+    .row-arrow { color: var(--text-dim); font-size: 0.8em; }
+    .empty { color: var(--text-dim); font-size: 0.88em; padding: 20px 0; }
+    .footer {
+      text-align: center; color: var(--text-dim);
+      font-size: 0.7em; margin-top: 36px;
+    }
   </style>
 </head>
 <body>
-  <p>金融早報 — 請透過每日 Email 連結進入當天報告。</p>
+  <div class="container">
+    <div class="header">
+      <h1>Daily Financial News</h1>
+      <p>每日自動生成 · 台股 &amp; 美股市場解析</p>
+    </div>
+    
+    <a href="https://bingjyun1006.github.io/Daily-Finance-News/reports/f3k9m2qx/2026-04-28.html" class="latest-btn">查看最新報告 (2026-04-28) →</a>
+    <div class='archive-title'>所有報告</div><div class='list'>
+      <a href="https://bingjyun1006.github.io/Daily-Finance-News/reports/f3k9m2qx/2026-04-28.html" class="row">
+        <span class="row-date">2026-04-28</span>
+        <span class="row-arrow">→</span>
+      </a>
+      <a href="https://bingjyun1006.github.io/Daily-Finance-News/reports/f3k9m2qx/2026-04-27.html" class="row">
+        <span class="row-date">2026-04-27</span>
+        <span class="row-arrow">→</span>
+      </a></div>
+    <div class="footer">由 Claude Haiku 自動生成 · TWSE + yfinance + RSS</div>
+  </div>
 </body>
 </html>
