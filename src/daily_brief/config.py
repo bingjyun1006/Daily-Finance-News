@@ -88,6 +88,13 @@ US_MOVERS_TICKERS = [
 ]
 US_MOVERS_TOP_N = 5
 
+# 財報追蹤清單：具市場影響力的美股（財報日期每週自動拉取）
+EARNINGS_WATCHLIST = [
+    "AAPL", "MSFT", "NVDA", "GOOGL", "META", "AMZN", "TSLA", "AMD",
+    "INTC", "AVGO", "JPM", "BAC", "GS", "V", "MA", "NFLX", "ORCL",
+    "CRM", "ASML", "TSM", "UNH", "XOM", "CVX", "LMT", "QCOM",
+]
+
 # 美股代號對應中文名
 US_TICKER_CN_NAMES = {
     "AAPL": "蘋果", "MSFT": "微軟", "NVDA": "輝達", "AMD": "超微",

@@ -7,6 +7,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from dotenv import load_dotenv
 load_dotenv()
 
+from calendar_fetcher import fetch_weekly_calendar
 from collector import fetch_market_data, fetch_rss_feeds, fetch_tw_movers, fetch_us_movers
 from config import SITE_HASH, SITE_BASE_URL
 from mailer import send_email
@@ -21,27 +22,30 @@ def main() -> None:
 
     print("=== 金融早報機器人 ===")
 
-    print("[1/5] 抓取市場指數與總經數據...")
+    print("[1/6] 抓取市場指數與總經數據...")
     market_data = fetch_market_data()
     ok = sum(1 for v in market_data.values() if v["price"] != "N/A")
     print(f"      取得 {ok}/{len(market_data)} 個指標")
 
-    print("[2/5] 抓取強弱勢個股...")
+    print("[2/6] 抓取強弱勢個股...")
     tw_movers = fetch_tw_movers()
     us_movers = fetch_us_movers()
     print(f"      台股：漲{len(tw_movers['gainers'])}／跌{len(tw_movers['losers'])}  "
           f"美股：漲{len(us_movers['gainers'])}／跌{len(us_movers['losers'])}")
 
-    print("[3/5] 抓取 RSS 新聞...")
+    print("[3/6] 抓取本週行事曆...")
+    weekly_calendar = fetch_weekly_calendar()
+
+    print("[4/6] 抓取 RSS 新聞...")
     articles = fetch_rss_feeds(max_items_per_source=10)
     sources = len(set(a["source"] for a in articles))
     print(f"      取得 {len(articles)} 則新聞，來自 {sources} 個來源")
 
-    print("[4/5] Claude Haiku 過濾與分析...")
+    print("[5/6] Claude Haiku 過濾與分析...")
     processed = process_with_claude(market_data, articles, tw_movers, us_movers)
 
-    print("[5/5] 生成 HTML 報告並存檔...")
-    html = build_report(market_data, processed, tw_movers, us_movers)
+    print("[6/6] 生成 HTML 報告並存檔...")
+    html = build_report(market_data, processed, tw_movers, us_movers, weekly_calendar)
 
     date_str = datetime.now().strftime("%Y-%m-%d")
     report_dir = REPO_ROOT / "docs" / "reports" / SITE_HASH

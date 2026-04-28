@@ -18,10 +18,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       --border:     #30363d;
       --border2:    #21262d;
       --text:       #e6edf3;
-      --text-sub:   #adbac7;   /* 提亮，確保可讀性 */
-      --text-dim:   #768390;   /* 提亮，確保可讀性 */
-      --blue:       #58a6ff;   /* 用於裝飾色塊/邊框 */
-      --blue-link:  #658DC6;   /* 連結文字：鋼藍，中明度，深底可讀有質感 */
+      --text-sub:   #adbac7;
+      --text-dim:   #768390;
+      --blue:       #58a6ff;
+      --blue-link:  #658DC6;
       --blue-dim:   #1f4a8a;
       --green:      #56d364;
       --green-dim:  #1a4731;
@@ -46,12 +46,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       padding: 22px 26px 18px;
       border-radius: 12px;
       margin-bottom: 14px;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .header::before {
-      content: '';
-      position: absolute; top: 0; right: 0;
+      content: ''; position: absolute; top: 0; right: 0;
       width: 200px; height: 200px;
       background: radial-gradient(circle at top right, rgba(88,166,255,0.06) 0%, transparent 70%);
       pointer-events: none;
@@ -64,50 +62,66 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       font-size: 0.68em; font-weight: 600;
       padding: 3px 10px; border-radius: 20px;
       letter-spacing: 0.06em; text-transform: uppercase;
-      border: 1px solid rgba(88,166,255,0.3);
-      white-space: nowrap;
+      border: 1px solid rgba(88,166,255,0.3); white-space: nowrap;
     }
     .quote-block { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border2); }
-    .quote-en {
-      font-size: 1.05em; font-weight: 500;
-      color: var(--text); line-height: 1.45;
-      font-style: italic;
-    }
+    .quote-en { font-size: 1.05em; font-weight: 500; color: var(--text); line-height: 1.45; font-style: italic; }
     .quote-zh { font-size: 0.78em; color: var(--text-sub); margin-top: 4px; }
     .quote-source { font-size: 0.72em; color: var(--text-dim); margin-top: 3px; }
 
     /* ── CARD ── */
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin-bottom: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 20px; margin-bottom: 12px;
     }
     .section-title {
-      font-size: 0.9em; font-weight: 700;
-      color: var(--text-sub);
+      font-size: 0.9em; font-weight: 700; color: var(--text-sub);
       text-transform: uppercase; letter-spacing: 0.08em;
-      margin-bottom: 12px;
-      display: flex; align-items: center; gap: 7px;
+      margin-bottom: 12px; display: flex; align-items: center; gap: 7px;
     }
     .section-title::before {
-      content: ''; display: inline-block;
-      width: 3px; height: 12px;
-      background: var(--blue); border-radius: 2px;
-      flex-shrink: 0;
+      content: ''; display: inline-block; width: 3px; height: 12px;
+      background: var(--blue); border-radius: 2px; flex-shrink: 0;
     }
     .section-title.green::before  { background: var(--green); }
     .section-title.amber::before  { background: var(--amber); }
     .section-title.purple::before { background: var(--purple); }
     .section-title.teal::before   { background: var(--teal); }
 
+    /* ── INNER LAYOUT HELPERS ── */
+    .inner-divider { border-top: 1px solid var(--border2); margin: 12px 0 10px; }
+    .inner-header {
+      font-size: 0.72em; font-weight: 700; color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;
+    }
+
+    /* ── NARRATIVE ── */
+    .narrative-summary {
+      font-size: 0.9em; font-weight: 600; color: var(--amber);
+      margin-bottom: 10px; line-height: 1.5;
+    }
+    .narrative-row { display: flex; gap: 10px; align-items: baseline; padding: 4px 0; }
+    .narrative-label {
+      font-size: 0.72em; font-weight: 700; color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.07em;
+      min-width: 58px; flex-shrink: 0; padding-top: 2px;
+    }
+    .narrative-body { font-size: 0.86em; color: var(--text); line-height: 1.6; }
+
+    /* ── HIGHLIGHTS ── */
+    .highlight {
+      padding: 6px 0; border-bottom: 1px solid var(--border2);
+      font-size: 0.86em; line-height: 1.55; color: var(--text);
+      display: flex; gap: 8px;
+    }
+    .highlight:last-child { border-bottom: none; }
+    .highlight::before { content: "▸"; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+
     /* ── MARKET TABLE ── */
     .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .market-group-title {
-      font-size: 0.82em; font-weight: 600;
-      color: var(--text-sub); text-transform: uppercase;
-      letter-spacing: 0.07em; margin-bottom: 8px;
+      font-size: 0.82em; font-weight: 600; color: var(--text-sub);
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px;
     }
     table { width: 100%; border-collapse: collapse; }
     td, th { padding: 5px 6px; text-align: left; border-bottom: 1px solid var(--border2); font-size: 0.82em; }
@@ -118,14 +132,26 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .na  { color: var(--text-dim); }
     td:first-child { color: var(--text); }
 
-    /* ── HIGHLIGHTS ── */
-    .highlight {
-      padding: 7px 0; border-bottom: 1px solid var(--border2);
-      font-size: 0.86em; line-height: 1.55; color: var(--text);
-      display: flex; gap: 8px;
+    /* ── MOVERS 3-COL ── */
+    .movers-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .movers-col-title {
+      font-size: 0.76em; font-weight: 700; margin-bottom: 7px;
+      padding-bottom: 5px; border-bottom: 1px solid var(--border);
     }
-    .highlight:last-child { border-bottom: none; }
-    .highlight::before { content: "▸"; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+    .movers-sub {
+      font-size: 0.7em; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--text-dim); margin: 8px 0 4px;
+    }
+    .mover-item { padding: 4px 0; border-bottom: 1px solid var(--border2); }
+    .mover-item:last-child { border-bottom: none; }
+    .mover-row { display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap; }
+    .mover-name { font-weight: 600; font-size: 0.78em; color: var(--text); }
+    .mover-cn   { font-size: 0.72em; color: var(--text-dim); }
+    .mover-pct  { font-weight: 700; font-size: 0.8em; margin-left: auto; }
+    .mover-news { font-size: 0.72em; color: var(--text-sub); margin-top: 2px; }
+    .mover-news a { color: var(--blue-link); text-decoration: underline; text-decoration-color: rgba(101,141,198,0.3); }
+    .mover-news a:hover { text-decoration-color: var(--blue-link); }
 
     /* ── NEWS ── */
     .news-item { padding: 7px 0; border-bottom: 1px solid var(--border2); }
@@ -141,7 +167,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .tag-tw { background: rgba(86,211,100,0.12);  color: var(--green);  border-color: rgba(86,211,100,0.25); }
     .tag-us { background: rgba(210,168,255,0.12); color: var(--purple); border-color: rgba(210,168,255,0.25); }
 
-    /* ── HOT STOCKS ── */
+    /* ── INDUSTRY ── */
+    .industry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .industry-name { font-weight: 700; font-size: 0.88em; color: var(--text-sub); margin-bottom: 5px; }
+
+    /* ── HOT STOCKS / RADAR ── */
     .hot-stock { padding: 9px 0; border-bottom: 1px solid var(--border2); }
     .hot-stock:last-child { border-bottom: none; }
     .hot-company { font-weight: 700; font-size: 0.88em; color: var(--amber); }
@@ -151,46 +181,27 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .hot-news-row { display: flex; align-items: baseline; gap: 5px; margin-top: 2px; }
     .hot-news-arrow { color: var(--text-dim); font-size: 0.75em; flex-shrink: 0; }
 
-    /* ── MOVERS ── */
-    .movers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .movers-side-title {
-      font-size: 0.8em; font-weight: 700; color: var(--text);
-      margin-bottom: 10px; padding-bottom: 6px;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 6px;
-    }
-    .movers-sub {
-      font-size: 0.76em; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.07em;
-      color: var(--text-dim); margin: 10px 0 5px;
-    }
-    .mover-item { padding: 4px 0; border-bottom: 1px solid var(--border2); }
-    .mover-item:last-child { border-bottom: none; }
-    .mover-row { display: flex; align-items: baseline; gap: 5px; flex-wrap: wrap; }
-    .mover-name { font-weight: 600; font-size: 0.82em; color: var(--text); }
-    .mover-cn   { font-size: 0.75em; color: var(--text-dim); }
-    .mover-pct  { font-weight: 700; font-size: 0.84em; margin-left: auto; }
-    .mover-news { font-size: 0.75em; color: var(--text-sub); margin-top: 2px; }
-    .mover-news a { color: var(--blue-link); text-decoration: underline; text-decoration-color: rgba(101,141,198,0.3); }
-    .mover-news a:hover { text-decoration-color: var(--blue-link); }
-
-    /* ── INDUSTRY ── */
-    .industry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .industry-block { }
-    .industry-name { font-weight: 700; font-size: 0.88em; color: var(--text-sub); margin-bottom: 5px; }
-
-    /* ── MARKET RADAR ── */
     .radar-item { padding: 8px 0; border-bottom: 1px solid var(--border2); }
     .radar-item:last-child { border-bottom: none; }
-    .radar-company { font-weight: 700; font-size: 0.88em; color: var(--amber); }
+    .radar-company { font-weight: 700; font-size: 0.88em; color: var(--blue); }
     .radar-reason { color: var(--text-sub); font-size: 0.82em; margin: 3px 0 2px; }
     .radar-basis  { font-size: 0.75em; color: var(--text-dim); }
 
-    /* ── NARRATIVE ── */
-    .narrative-text {
-      font-size: 0.88em; line-height: 1.8;
-      color: var(--text); white-space: pre-line;
+    /* ── CALENDAR ── */
+    .cal-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 5px 0; border-bottom: 1px solid var(--border2); font-size: 0.82em;
     }
+    .cal-item:last-child { border-bottom: none; }
+    .cal-date { color: var(--text-dim); min-width: 78px; font-size: 0.88em; flex-shrink: 0; }
+    .cal-name { color: var(--text); flex: 1; }
+    .cal-badge {
+      font-size: 0.7em; font-weight: 700; padding: 1px 6px;
+      border-radius: 3px; white-space: nowrap; flex-shrink: 0;
+    }
+    .cal-high   { background: rgba(255,123,114,0.15); color: var(--red); }
+    .cal-medium { background: rgba(227,179,65,0.15);  color: var(--amber); }
+    .cal-timing { font-size: 0.75em; color: var(--text-dim); flex-shrink: 0; }
 
     /* ── FOOTER ── */
     .footer {
@@ -210,7 +221,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
     <div class="header-badge">Daily Brief</div>
   </div>
-
   {% set q = processed.get('daily_quote', {}) %}
   {% if q and q.en %}
   <div class="quote-block">
@@ -222,17 +232,40 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </div>
 
 <!-- 今日市場解析 -->
-{% set narrative = processed.get('market_narrative', '') %}
+{% set narrative = processed.get('market_narrative', {}) %}
 {% if narrative %}
 <div class="card" style="border-left: 3px solid var(--amber);">
   <div class="section-title amber">今日市場解析</div>
-  <p class="narrative-text">{{ narrative }}</p>
+  {% if narrative is mapping %}
+    {% if narrative.summary %}
+    <div class="narrative-summary">{{ narrative.summary }}</div>
+    {% endif %}
+    {% if narrative.sections %}
+    <div style="margin-bottom: 4px;">
+      {% for section in narrative.sections %}
+      <div class="narrative-row">
+        <span class="narrative-label">{{ section.label }}</span>
+        <span class="narrative-body">{{ section.text }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% else %}
+    <p class="narrative-body" style="white-space:pre-line;">{{ narrative }}</p>
+  {% endif %}
+  {% if processed.highlights %}
+  <div class="inner-divider"></div>
+  <div class="inner-header">重點速覽</div>
+  {% for item in processed.highlights %}
+  <div class="highlight">{{ item }}</div>
+  {% endfor %}
+  {% endif %}
 </div>
 {% endif %}
 
-<!-- 市場概覽 -->
+<!-- 市場速覽 -->
 <div class="card">
-  <div class="section-title">市場概覽</div>
+  <div class="section-title">市場速覽</div>
   <div class="market-grid">
     {% for group_name, group_symbols in market_groups.items() %}
     <div>
@@ -259,22 +292,98 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
     {% endfor %}
   </div>
+
+  {% if tw_movers.gainers or tw_movers.losers or us_movers.gainers or us_movers.losers %}
+  <div class="inner-divider"></div>
+  <div class="inner-header">昨日強弱勢</div>
+  <div class="movers-3col">
+
+    <!-- 台股漲幅 -->
+    <div>
+      <div class="movers-col-title" style="color:var(--green)">🇹🇼 台股 ▲</div>
+      {% for m in tw_movers.gainers %}
+      {% set mn = tw_movers_news | selectattr("code", "equalto", m.code) | first | default(None) %}
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">{{ m.name }}</span>
+          <span class="mover-cn">{{ m.code }}</span>
+          <span class="mover-pct up">+{{ m.change_pct }}%</span>
+        </div>
+        {% if mn and mn.related_news %}
+        <div class="mover-news">↳ <a href="{{ mn.related_news.link }}" target="_blank">{{ mn.related_news.title[:30] }}…</a></div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- 台股跌幅 -->
+    <div>
+      <div class="movers-col-title" style="color:var(--red)">🇹🇼 台股 ▼</div>
+      {% for m in tw_movers.losers %}
+      {% set mn = tw_movers_news | selectattr("code", "equalto", m.code) | first | default(None) %}
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">{{ m.name }}</span>
+          <span class="mover-cn">{{ m.code }}</span>
+          <span class="mover-pct dn">{{ m.change_pct }}%</span>
+        </div>
+        {% if mn and mn.related_news %}
+        <div class="mover-news">↳ <a href="{{ mn.related_news.link }}" target="_blank">{{ mn.related_news.title[:30] }}…</a></div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- 美股 -->
+    <div>
+      <div class="movers-col-title" style="color:var(--purple)">🇺🇸 美股</div>
+      {% if us_movers.gainers %}
+      <div class="movers-sub up">▲ 漲幅</div>
+      {% for m in us_movers.gainers %}
+      {% set mn = us_movers_news | selectattr("code", "equalto", m.code) | first | default(None) %}
+      {% set cn = ticker_cn.get(m.code, '') %}
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">{{ m.code }}</span>
+          {% if cn %}<span class="mover-cn">{{ cn }}</span>{% endif %}
+          <span class="mover-pct up">+{{ m.change_pct }}%</span>
+        </div>
+        {% if mn and mn.related_news %}
+        <div class="mover-news">↳ <a href="{{ mn.related_news.link }}" target="_blank">{{ mn.related_news.title[:30] }}…</a></div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% if us_movers.losers %}
+      <div class="movers-sub dn" style="margin-top:8px;">▼ 跌幅</div>
+      {% for m in us_movers.losers %}
+      {% set mn = us_movers_news | selectattr("code", "equalto", m.code) | first | default(None) %}
+      {% set cn = ticker_cn.get(m.code, '') %}
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">{{ m.code }}</span>
+          {% if cn %}<span class="mover-cn">{{ cn }}</span>{% endif %}
+          <span class="mover-pct dn">{{ m.change_pct }}%</span>
+        </div>
+        {% if mn and mn.related_news %}
+        <div class="mover-news">↳ <a href="{{ mn.related_news.link }}" target="_blank">{{ mn.related_news.title[:30] }}…</a></div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+
+  </div>
+  {% endif %}
 </div>
 
-<!-- 今日重點 -->
-{% if processed.highlights %}
+<!-- 台股新聞 -->
+{% set active_industries = processed.industry.items() | selectattr('1') | list %}
+{% if processed.tw_market or active_industries %}
 <div class="card">
-  <div class="section-title">今日重點</div>
-  {% for item in processed.highlights %}
-  <div class="highlight">{{ item }}</div>
-  {% endfor %}
-</div>
-{% endif %}
-
-<!-- 台股動態 -->
-{% if processed.tw_market %}
-<div class="card">
-  <div class="section-title green">台股動態</div>
+  <div class="section-title green">台股新聞</div>
+  {% if processed.tw_market %}
+  <div class="inner-header">精選新聞</div>
   {% for item in processed.tw_market %}
   <div class="news-item">
     {% if item.source or item.time %}
@@ -284,6 +393,26 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <span class="tag tag-tw">{{ item.tag }}</span>
   </div>
   {% endfor %}
+  {% endif %}
+  {% if active_industries %}
+  {% if processed.tw_market %}<div class="inner-divider"></div>{% endif %}
+  <div class="inner-header">各產業動態</div>
+  <div class="industry-grid">
+    {% for industry, items in active_industries %}
+    <div>
+      <div class="industry-name">{{ industry }}</div>
+      {% for item in items %}
+      <div class="news-item">
+        {% if item.source or item.time %}
+        <div class="news-meta">[{{ item.source }}{% if item.time %} · {{ item.time }}{% endif %}]</div>
+        {% endif %}
+        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
 </div>
 {% endif %}
 
@@ -303,10 +432,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </div>
 {% endif %}
 
-<!-- 熱門話題股 -->
-{% if processed.hot_stocks %}
+<!-- 個股焦點 -->
+{% if processed.hot_stocks or processed.market_radar %}
 <div class="card">
-  <div class="section-title amber">熱門話題股</div>
+  <div class="section-title amber">個股焦點</div>
+  {% if processed.hot_stocks %}
+  <div class="inner-header">熱門話題股</div>
   {% for stock in processed.hot_stocks %}
   <div class="hot-stock">
     <div class="hot-company">{{ stock.company }}</div>
@@ -323,122 +454,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     {% endif %}
   </div>
   {% endfor %}
-</div>
-{% endif %}
-
-<!-- 昨日強弱勢 -->
-{% if tw_movers.gainers or tw_movers.losers or us_movers.gainers or us_movers.losers %}
-<div class="card">
-  <div class="section-title teal">昨日強弱勢</div>
-  <div class="movers-grid">
-
-    <!-- 台股 -->
-    <div>
-      <div class="movers-side-title">🇹🇼 台股</div>
-      {% if tw_movers.gainers %}
-      <div class="movers-sub">▲ 漲幅前 {{ tw_movers.gainers | length }}</div>
-      {% for m in tw_movers.gainers %}
-      {% set mn = tw_movers_news | selectattr("code", "equalto", m.code) | first | default(None) %}
-      <div class="mover-item">
-        <div class="mover-row">
-          <span class="mover-name">{{ m.name }}</span>
-          <span class="mover-cn">{{ m.code }}</span>
-          <span class="mover-pct up">+{{ m.change_pct }}%</span>
-        </div>
-        {% if mn and mn.related_news %}
-        <div class="mover-news">↳ <a href="{{ mn.related_news.link }}" target="_blank">{{ mn.related_news.title[:45] }}…</a></div>
-        {% endif %}
-      </div>
-      {% endfor %}
-      {% endif %}
-      {% if tw_movers.losers %}
-      <div class="movers-sub" style="margin-top:12px;">▼ 跌幅前 {{ tw_movers.losers | length }}</div>
-      {% for m in tw_movers.losers %}
-      {% set mn = tw_movers_news | selectattr("code", "equalto", m.code) | first | default(None) %}
-      <div class="mover-item">
-        <div class="mover-row">
-          <span class="mover-name">{{ m.name }}</span>
-          <span class="mover-cn">{{ m.code }}</span>
-          <span class="mover-pct dn">{{ m.change_pct }}%</span>
-        </div>
-        {% if mn and mn.related_news %}
-        <div class="mover-news">↳ <a href="{{ mn.related_news.link }}" target="_blank">{{ mn.related_news.title[:45] }}…</a></div>
-        {% endif %}
-      </div>
-      {% endfor %}
-      {% endif %}
-    </div>
-
-    <!-- 美股 -->
-    <div>
-      <div class="movers-side-title">🇺🇸 美股</div>
-      {% if us_movers.gainers %}
-      <div class="movers-sub">▲ 漲幅前 {{ us_movers.gainers | length }}</div>
-      {% for m in us_movers.gainers %}
-      {% set mn = us_movers_news | selectattr("code", "equalto", m.code) | first | default(None) %}
-      {% set cn = ticker_cn.get(m.code, '') %}
-      <div class="mover-item">
-        <div class="mover-row">
-          <span class="mover-name">{{ m.code }}</span>
-          {% if cn %}<span class="mover-cn">{{ cn }}</span>{% endif %}
-          <span class="mover-pct up">+{{ m.change_pct }}%</span>
-        </div>
-        {% if mn and mn.related_news %}
-        <div class="mover-news">↳ <a href="{{ mn.related_news.link }}" target="_blank">{{ mn.related_news.title[:45] }}…</a></div>
-        {% endif %}
-      </div>
-      {% endfor %}
-      {% endif %}
-      {% if us_movers.losers %}
-      <div class="movers-sub" style="margin-top:12px;">▼ 跌幅前 {{ us_movers.losers | length }}</div>
-      {% for m in us_movers.losers %}
-      {% set mn = us_movers_news | selectattr("code", "equalto", m.code) | first | default(None) %}
-      {% set cn = ticker_cn.get(m.code, '') %}
-      <div class="mover-item">
-        <div class="mover-row">
-          <span class="mover-name">{{ m.code }}</span>
-          {% if cn %}<span class="mover-cn">{{ cn }}</span>{% endif %}
-          <span class="mover-pct dn">{{ m.change_pct }}%</span>
-        </div>
-        {% if mn and mn.related_news %}
-        <div class="mover-news">↳ <a href="{{ mn.related_news.link }}" target="_blank">{{ mn.related_news.title[:45] }}…</a></div>
-        {% endif %}
-      </div>
-      {% endfor %}
-      {% endif %}
-    </div>
-
-  </div>
-</div>
-{% endif %}
-
-<!-- 產業動態 -->
-{% set active_industries = processed.industry.items() | selectattr('1') | list %}
-{% if active_industries %}
-<div class="card">
-  <div class="section-title purple">產業動態</div>
-  <div class="industry-grid">
-    {% for industry, items in active_industries %}
-    <div class="industry-block">
-      <div class="industry-name">{{ industry }}</div>
-      {% for item in items %}
-      <div class="news-item">
-        {% if item.source or item.time %}
-        <div class="news-meta">[{{ item.source }}{% if item.time %} · {{ item.time }}{% endif %}]</div>
-        {% endif %}
-        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
-      </div>
-      {% endfor %}
-    </div>
-    {% endfor %}
-  </div>
-</div>
-{% endif %}
-
-<!-- 市場雷達 -->
-{% if processed.market_radar %}
-<div class="card">
-  <div class="section-title">市場雷達</div>
+  {% endif %}
+  {% if processed.market_radar %}
+  {% if processed.hot_stocks %}<div class="inner-divider"></div>{% endif %}
+  <div class="inner-header">潛力關注股</div>
   {% for item in processed.market_radar %}
   <div class="radar-item">
     <div class="radar-company">{{ item.company }}</div>
@@ -448,19 +467,51 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
   </div>
   {% endfor %}
+  {% endif %}
 </div>
 {% endif %}
 
-<div class="footer">由 Claude Haiku 自動生成 &nbsp;·&nbsp; TWSE + yfinance + RSS &nbsp;·&nbsp; {{ date }}</div>
+<!-- 本週關注 -->
+{% if weekly_calendar.economic_events or weekly_calendar.earnings %}
+<div class="card">
+  <div class="section-title">本週關注</div>
+  {% if weekly_calendar.economic_events %}
+  <div class="inner-header">重要總經數據</div>
+  {% for event in weekly_calendar.economic_events %}
+  <div class="cal-item">
+    <span class="cal-date">{{ event.date }}</span>
+    <span class="cal-name">{{ event.name }}</span>
+    <span class="cal-badge {{ 'cal-high' if event.impact == 'high' else 'cal-medium' }}">{{ event.impact }}</span>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% if weekly_calendar.earnings %}
+  {% if weekly_calendar.economic_events %}<div class="inner-divider"></div>{% endif %}
+  <div class="inner-header">美股財報</div>
+  {% for e in weekly_calendar.earnings %}
+  <div class="cal-item">
+    <span class="cal-date">{{ e.date }}</span>
+    <span class="cal-name">{{ e.symbol }}{% if e.cn_name %} · {{ e.cn_name }}{% endif %}</span>
+    {% if e.timing %}<span class="cal-timing">{{ e.timing }}</span>{% endif %}
+  </div>
+  {% endfor %}
+  {% endif %}
+</div>
+{% endif %}
+
+<div class="footer">由 Claude Haiku 自動生成 &nbsp;·&nbsp; TWSE + yfinance + RSS + Finnhub &nbsp;·&nbsp; {{ date }}</div>
 </body>
 </html>"""
 
 
 def build_report(market_data: dict, processed: dict,
                  tw_movers: dict, us_movers: dict,
+                 weekly_calendar: dict | None = None,
                  date_str: str | None = None) -> str:
     if date_str is None:
         date_str = datetime.now().strftime("%Y年%m月%d日")
+    if weekly_calendar is None:
+        weekly_calendar = {"economic_events": [], "earnings": []}
 
     tw_movers_news = processed.get("tw_movers_news", [])
     us_movers_news = processed.get("us_movers_news", [])
@@ -476,4 +527,5 @@ def build_report(market_data: dict, processed: dict,
         tw_movers_news=tw_movers_news,
         us_movers_news=us_movers_news,
         ticker_cn=US_TICKER_CN_NAMES,
+        weekly_calendar=weekly_calendar,
     )

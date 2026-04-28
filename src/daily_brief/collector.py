@@ -90,8 +90,10 @@ def fetch_tw_movers(top_n: int = TW_MOVERS_TOP_N) -> dict:
                     continue
                 close_str = item.get("ClosingPrice", "").replace(",", "")
                 change_str = item.get("Change", "").replace(",", "").replace("+", "")
+                trade_val_str = item.get("TradeValue", "0").replace(",", "")
                 close = float(close_str) if close_str not in ("--", "", "除權息") else None
                 change = float(change_str) if change_str not in ("--", "", "X", "") else None
+                trade_value = int(trade_val_str) if trade_val_str.isdigit() else 0
                 if close is None or change is None or close == 0:
                     continue
                 prev = close - change
@@ -102,10 +104,13 @@ def fetch_tw_movers(top_n: int = TW_MOVERS_TOP_N) -> dict:
                     "price": close,
                     "change": change,
                     "change_pct": change_pct,
+                    "trade_value": trade_value,
                 })
             except (ValueError, ZeroDivisionError):
                 continue
 
+        # Filter to top 300 by daily trading value (proxy for market cap) to exclude micro-caps
+        stocks = sorted(stocks, key=lambda x: x["trade_value"], reverse=True)[:300]
         gainers = sorted(stocks, key=lambda x: x["change_pct"], reverse=True)[:top_n]
         losers = sorted(stocks, key=lambda x: x["change_pct"])[:top_n]
         return {"gainers": gainers, "losers": losers}
