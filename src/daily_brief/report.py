@@ -396,7 +396,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   {% endif %}
   {% if active_industries %}
   {% if processed.tw_market %}<div class="inner-divider"></div>{% endif %}
-  <div class="inner-header">各產業動態</div>
+  <div class="inner-header">台股產業動態</div>
   <div class="industry-grid">
     {% for industry, items in active_industries %}
     <div>
@@ -417,9 +417,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 {% endif %}
 
 <!-- 美股 & 總經 -->
-{% if processed.us_macro %}
+{% set active_us_industries = processed.get('us_industry', {}).items() | selectattr('1') | list %}
+{% if processed.us_macro or active_us_industries %}
 <div class="card">
-  <div class="section-title purple">總經動態</div>
+  <div class="section-title purple">美股 &amp; 總經</div>
+  {% if processed.us_macro %}
+  <div class="inner-header">整體動態</div>
   {% for item in processed.us_macro %}
   <div class="news-item">
     {% if item.source or item.time %}
@@ -429,6 +432,26 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <span class="tag tag-us">{{ item.tag }}</span>
   </div>
   {% endfor %}
+  {% endif %}
+  {% if active_us_industries %}
+  {% if processed.us_macro %}<div class="inner-divider"></div>{% endif %}
+  <div class="inner-header">美股產業動態</div>
+  <div class="industry-grid">
+    {% for industry, items in active_us_industries %}
+    <div>
+      <div class="industry-name">{{ industry }}</div>
+      {% for item in items %}
+      <div class="news-item">
+        {% if item.source or item.time %}
+        <div class="news-meta">[{{ item.source }}{% if item.time %} · {{ item.time }}{% endif %}]</div>
+        {% endif %}
+        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
 </div>
 {% endif %}
 
