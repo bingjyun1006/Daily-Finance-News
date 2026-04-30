@@ -168,7 +168,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .tag-us { background: rgba(210,168,255,0.12); color: var(--purple); border-color: rgba(210,168,255,0.25); }
 
     /* ── INDUSTRY ── */
-    .industry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .industry-grid { columns: 2; column-gap: 14px; }
+    .industry-grid > div { break-inside: avoid; margin-bottom: 14px; }
     .industry-name { font-weight: 700; font-size: 0.88em; color: var(--text-sub); margin-bottom: 5px; }
 
     /* ── HOT STOCKS / RADAR ── */
