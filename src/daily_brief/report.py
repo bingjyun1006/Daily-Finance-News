@@ -381,9 +381,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 {% set active_industries = processed.industry.items() | selectattr('1') | list %}
 {% if processed.tw_market or active_industries %}
 <div class="card">
-  <div class="section-title green">台股新聞</div>
+  <div class="section-title green">台股動態</div>
   {% if processed.tw_market %}
-  <div class="inner-header">精選新聞</div>
+  <div class="inner-header">市場動態</div>
   {% for item in processed.tw_market %}
   <div class="news-item">
     {% if item.source or item.time %}
@@ -419,7 +419,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <!-- 美股 & 總經 -->
 {% if processed.us_macro %}
 <div class="card">
-  <div class="section-title purple">美股 &amp; 總經</div>
+  <div class="section-title purple">總經動態</div>
   {% for item in processed.us_macro %}
   <div class="news-item">
     {% if item.source or item.time %}
