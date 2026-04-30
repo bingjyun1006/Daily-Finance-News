@@ -162,7 +162,8 @@
     .tag-us { background: rgba(210,168,255,0.12); color: var(--purple); border-color: rgba(210,168,255,0.25); }
 
     /* ── INDUSTRY ── */
-    .industry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .industry-grid { columns: 2; column-gap: 14px; }
+    .industry-grid > div { break-inside: avoid; margin-bottom: 14px; }
     .industry-name { font-weight: 700; font-size: 0.88em; color: var(--text-sub); margin-bottom: 5px; }
 
     /* ── HOT STOCKS / RADAR ── */
@@ -218,9 +219,9 @@
   
   
   <div class="quote-block">
-    <div class="quote-en">"The best investment is in the tools of one's own trade."</div>
-    <div class="quote-zh">最好的投資是在自己行業的工具上。</div>
-    <div class="quote-source">— Benjamin Franklin</div>
+    <div class="quote-en">"The task of the excellent manager is to organize and direct human effort to harness nature for the benefit of man."</div>
+    <div class="quote-zh">傑出管理者的任務是組織和指導人力資源，運用自然為人類謀取利益。</div>
+    <div class="quote-source">— Peter Drucker</div>
   </div>
   
 </div>
@@ -232,29 +233,29 @@
   <div class="section-title amber">今日市場解析</div>
   
     
-    <div class="narrative-summary">AI基建投資加碼與中東局勢升溫主導市場，科技股強勢對抗巨債殖利率上升壓力。</div>
+    <div class="narrative-summary">科技財報強勢但地緣政治升溫，AI投資熱度對沖伊朗戰爭風險衝擊。</div>
     
     
     <div style="margin-bottom: 4px;">
       
       <div class="narrative-row">
         <span class="narrative-label">台股</span>
-        <span class="narrative-body">加權指數下跌376點至38926點，三大法人連續賣超，台積電測試10日線支撐，但單月仍漲7203點。</span>
+        <span class="narrative-body">加權跌0.96%至38926點，電子權重股疲軟但醫療、化工等傳統產業個股逆勢大漲逾9%，結構分化明顯。</span>
       </div>
       
       <div class="narrative-row">
         <span class="narrative-label">美股</span>
-        <span class="narrative-body">S&P 500小幅下跌0.04%，費半指數漲2.35%領漲，NXPI+25.55%、INTC+12.10%，科技股強勢對抗殖利率升壓。</span>
+        <span class="narrative-body">費半漲2.35%、NXPI暴漲25.55%、INTC勁升12.10%，科技財報強勢推升晶片股復甦；道瓊跌0.57%受汽車產業疲弱拖累。</span>
       </div>
       
       <div class="narrative-row">
         <span class="narrative-label">總經</span>
-        <span class="narrative-body">10Y美債殖利率升至4.42%，油價漲至108.27美元創4年高位（Brent超$126），伊朗局勢風險升溫推升避險資產需求。</span>
+        <span class="narrative-body">Fed按兵不動維持利率，鮑威爾確認留任理事；伊朗局勢升溫油價漲至108.41美元、黃金漲1.43%；10Y美債殖利率大升至4.42%。</span>
       </div>
       
       <div class="narrative-row">
         <span class="narrative-label">今日關注</span>
-        <span class="narrative-body">微軟、Google均宣佈2026年資本支出190億美元，Copilot使用者超2000萬付費用戶；Apple管理層更替（Tim Cook交棒）；Meta因AI支出計畫股價下挫，AI基建投資競賽加速而人力精簡併行。</span>
+        <span class="narrative-body">微軟資本支出提高至190億美元應對記憶體價格飆升，AI基礎建設投資熱度與地緣政治風險構成未來市場核心拉扯。</span>
       </div>
       
     </div>
@@ -264,13 +265,15 @@
   <div class="inner-divider"></div>
   <div class="inner-header">重點速覽</div>
   
-  <div class="highlight">美債殖利率大幅上升至4.42%（+138bp），市場聚焦伊朗衝突升溫對Fed政策影響</div>
+  <div class="highlight">美股科技財報強勢推升費半指數漲2.35%，NXPI大漲25.55%、INTC勁升12.10%領軍晶片股反彈。</div>
   
-  <div class="highlight">費半指數上漲2.35%，晶片類股領漲；NXPI、INTC漲幅超雙位數，反映AI供應鏈樂觀預期</div>
+  <div class="highlight">伊朗局勢升溫驅動原油突破4年高位至108.41美元、黃金漲1.43%，市場風險偏好轉變為防守導向。</div>
   
-  <div class="highlight">科技巨頭資本支出創新高：微軟、Google各宣佈190億美元2026年支出計畫，AI基礎設施投資加速</div>
+  <div class="highlight">台股跌0.96%至38926點，電子權重股重跌惟存有個股亮點；健策、一詮等醫療及化工股逆勢大漲逾9%。</div>
   
-  <div class="highlight">台股跌0.96%收38926點，三大法人賣超531.67億元，盤中台積電測試10日線支撐</div>
+  <div class="highlight">Fed主席鮑威爾確認留任聯準會理事，市場消化聯準會按兵不動維持利率；10Y美債殖利率大漲138bp至4.42%。</div>
+  
+  <div class="highlight">微軟資本支出計畫大幅提高至190億美元因記憶體價格飆升，AI基礎建設投資成為驅動科技股獲利與風險關鍵。</div>
   
   
 </div>
@@ -380,12 +383,12 @@
         <tr>
           <td>恒生</td>
           <td style="color:var(--text); font-variant-numeric: tabular-nums;">
-            25801.81
+            25772.2
           </td>
           <td>
             
               <span class="dn">
-                -1.19%
+                -1.3%
               </span>
             
           </td>
@@ -433,12 +436,12 @@
         <tr>
           <td>美元指數</td>
           <td style="color:var(--text); font-variant-numeric: tabular-nums;">
-            98.91
+            98.93
           </td>
           <td>
             
-              <span class="dn">
-                -0.01%
+              <span class="up">
+                +0.01%
               </span>
             
           </td>
@@ -448,12 +451,12 @@
         <tr>
           <td>台幣匯率</td>
           <td style="color:var(--text); font-variant-numeric: tabular-nums;">
-            31.69
+            31.68
           </td>
           <td>
             
               <span class="up">
-                +0.57%
+                +0.54%
               </span>
             
           </td>
@@ -463,12 +466,12 @@
         <tr>
           <td>VIX</td>
           <td style="color:var(--text); font-variant-numeric: tabular-nums;">
-            18.72
+            18.65
           </td>
           <td>
             
               <span class="dn">
-                -0.48%
+                -0.85%
               </span>
             
           </td>
@@ -478,12 +481,12 @@
         <tr>
           <td>黃金</td>
           <td style="color:var(--text); font-variant-numeric: tabular-nums;">
-            4600.3
+            4610.1
           </td>
           <td>
             
               <span class="up">
-                +1.21%
+                +1.43%
               </span>
             
           </td>
@@ -493,12 +496,12 @@
         <tr>
           <td>原油</td>
           <td style="color:var(--text); font-variant-numeric: tabular-nums;">
-            108.27
+            108.41
           </td>
           <td>
             
               <span class="up">
-                +1.3%
+                +1.43%
               </span>
             
           </td>
@@ -526,6 +529,8 @@
           <span class="mover-pct up">+10.0%</span>
         </div>
         
+        <div class="mover-news">↳ <a href="https://money.udn.com/money/story/5612/9474527" target="_blank">杏一法說會／兩岸展店轉趨審慎 強攻長照3.0商機…</a></div>
+        
       </div>
       
       
@@ -535,6 +540,8 @@
           <span class="mover-cn">2486</span>
           <span class="mover-pct up">+9.98%</span>
         </div>
+        
+        <div class="mover-news">↳ <a href="https://money.udn.com/money/story/5612/9474506" target="_blank">SCFI運價指數終結連二跌 美西線漲幅達5%…</a></div>
         
       </div>
       
@@ -741,8 +748,6 @@
           <span class="mover-pct up">+25.55%</span>
         </div>
         
-        <div class="mover-news">↳ <a href="https://www.marketwatch.com/story/why-qualcomms-stock-is-soaring-even-in-the-face-of-a-weak-outlook-560f4546?mod=mw_rss_topstories" target="_blank">Why Qualcomm's stock is soarin…</a></div>
-        
       </div>
       
       
@@ -754,7 +759,7 @@
           <span class="mover-pct up">+12.1%</span>
         </div>
         
-        <div class="mover-news">↳ <a href="https://www.theguardian.com/technology/2026/apr/29/earnings-ai-boom-us-stock-markets" target="_blank">Tech giants' results show rosy…</a></div>
+        <div class="mover-news">↳ <a href="https://www.fool.com/investing/2026/04/29/fantastic-news-for-intel-stock-investors/?source=iedfolrf0000001" target="_blank">Fantastic News for Intel Stock…</a></div>
         
       </div>
       
@@ -767,8 +772,6 @@
           <span class="mover-pct up">+11.1%</span>
         </div>
         
-        <div class="mover-news">↳ <a href="https://www.marketwatch.com/story/sandisk-shares-have-soared-over-3-000-in-a-year-is-a-stock-split-next-4607dc97?mod=mw_rss_topstories" target="_blank">Sandisk shares have soared ove…</a></div>
-        
       </div>
       
       
@@ -779,8 +782,6 @@
           <span class="mover-cn">星巴克</span>
           <span class="mover-pct up">+8.45%</span>
         </div>
-        
-        <div class="mover-news">↳ <a href="https://www.marketwatch.com/story/more-diners-are-eating-at-chipotle-despite-higher-prices-bucking-wall-streets-concerns-about-restaurants-7d221685?mod=mw_rss_topstories" target="_blank">More diners are eating at Chip…</a></div>
         
       </div>
       
@@ -871,18 +872,10 @@
   
   <div class="news-item">
     
-    <div class="news-meta">[經濟日報 · 07:21]</div>
+    <div class="news-meta">[經濟日報 · 07:48]</div>
     
-    <a href="https://money.udn.com/money/story/5612/9474440" target="_blank">三大法人賣超台股531.67億元</a>
-    <span class="tag tag-tw">台股行情</span>
-  </div>
-  
-  <div class="news-item">
-    
-    <div class="news-meta">[經濟日報 · 07:00]</div>
-    
-    <a href="https://money.udn.com/money/story/5612/9474379" target="_blank">台積電回測10日線支撐 台股跌376點單月飆漲7203點</a>
-    <span class="tag tag-tw">台股技術面</span>
+    <a href="https://money.udn.com/money/story/5612/9474506" target="_blank">SCFI運價指數終結連二跌 美西線漲幅達5%</a>
+    <span class="tag tag-tw">外資動態</span>
   </div>
   
   
@@ -892,13 +885,37 @@
   <div class="industry-grid">
     
     <div>
+      <div class="industry-name">半導體製造</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[MarketWatch · 00:42]</div>
+        
+        <a href="https://www.marketwatch.com/story/why-qualcomms-stock-is-soaring-even-in-the-face-of-a-weak-outlook-560f4546?mod=mw_rss_topstories" target="_blank">Why Qualcomm's stock is soaring even in the face of a weak outlook</a>
+      </div>
+      
+    </div>
+    
+    <div>
       <div class="industry-name">IC設計</div>
       
       <div class="news-item">
         
-        <div class="news-meta">[經濟日報 · 07:01]</div>
+        <div class="news-meta">[經濟日報 · 08:02]</div>
         
-        <a href="https://money.udn.com/money/story/5612/9474383" target="_blank">致茂財報／首季淨利38.6億元、季增46% EPS 達9.12元</a>
+        <a href="https://money.udn.com/money/story/5612/9474549" target="_blank">陳泰銘：國巨轉型拚高階客製化 AI所有應用絕不缺席</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">記憶體</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[CNBC · 02:05]</div>
+        
+        <a href="https://www.cnbc.com/2026/04/29/microsoft-msft-q3-earnings-report-2026.html" target="_blank">Microsoft calls for $190 billion in 2026 capital spending on soaring memory prices</a>
       </div>
       
     </div>
@@ -908,40 +925,28 @@
       
       <div class="news-item">
         
-        <div class="news-meta">[經濟日報 · 07:14]</div>
+        <div class="news-meta">[TechCrunch · 00:14]</div>
         
-        <a href="https://money.udn.com/money/story/5612/9474419" target="_blank">技嘉參加2026 OCP EMEA 高峰會 加速 AI 資料中心發展</a>
+        <a href="https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending/" target="_blank">Amazon's cloud business is surging — and so is its capital spending</a>
       </div>
       
     </div>
     
     <div>
-      <div class="industry-name">電源/散熱</div>
+      <div class="industry-name">生技醫療</div>
       
       <div class="news-item">
         
-        <div class="news-meta">[經濟日報 · 07:16]</div>
+        <div class="news-meta">[經濟日報 · 07:58]</div>
         
-        <a href="https://money.udn.com/money/story/5612/9474433" target="_blank">微星推出全新電競顯示器 第四代 QD-OLED 技術全面進化</a>
-      </div>
-      
-    </div>
-    
-    <div>
-      <div class="industry-name">重電/電力</div>
-      
-      <div class="news-item">
-        
-        <div class="news-meta">[經濟日報 · 07:00]</div>
-        
-        <a href="https://money.udn.com/money/story/5612/9474377" target="_blank">核三重啟最新進度！台電董座曝原廠5月開始、年底完成第一步安全檢測</a>
+        <a href="https://money.udn.com/money/story/5612/9474527" target="_blank">杏一法說會／兩岸展店轉趨審慎 強攻長照3.0商機</a>
       </div>
       
       <div class="news-item">
         
-        <div class="news-meta">[經濟日報 · 06:59]</div>
+        <div class="news-meta">[經濟日報 · 07:49]</div>
         
-        <a href="https://money.udn.com/money/story/5612/9474373" target="_blank">出席台電80周年慶祝大會 賴清德總統呼籲支持台電預算</a>
+        <a href="https://money.udn.com/money/story/5612/9474509" target="_blank">華立轉投資樂迦再生 CDMO智慧型工廠啟用</a>
       </div>
       
     </div>
@@ -951,9 +956,9 @@
       
       <div class="news-item">
         
-        <div class="news-meta">[經濟日報 · 07:14]</div>
+        <div class="news-meta">[經濟日報 · 07:53]</div>
         
-        <a href="https://money.udn.com/money/story/5612/9474425" target="_blank">福邦證股東會通過股利約1.36元 黃炳鈞續任董事長</a>
+        <a href="https://money.udn.com/money/story/5612/9474515" target="_blank">福邦證股東會／通過配息1.36元、殖利率逾8％ 完成董事改選</a>
       </div>
       
     </div>
@@ -973,26 +978,34 @@
   
   <div class="news-item">
     
-    <div class="news-meta">[CNBC · 05:53]</div>
+    <div class="news-meta">[Fed官方 · 18:00]</div>
     
-    <a href="https://www.cnbc.com/2026/04/30/oil-prices-today-brent-wti-us-iran-war-trump.html" target="_blank">Brent crude hits 4-year high, soaring past $126, as U.S. military to reportedly brief Trump on action against Iran</a>
-    <span class="tag tag-us">商品期貨</span>
+    <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve issues FOMC statement</a>
+    <span class="tag tag-us">Fed決議</span>
   </div>
   
   <div class="news-item">
     
-    <div class="news-meta">[CNBC · 02:43]</div>
+    <div class="news-meta">[CNBC · 07:58]</div>
     
-    <a href="https://www.cnbc.com/2026/04/30/china-pmi-april-xi-trump-iran-war.html" target="_blank">China factory activity tops expectations in April — but growth slows as new orders soften</a>
-    <span class="tag tag-us">全球經濟</span>
+    <a href="https://www.cnbc.com/2026/04/30/oil-prices-today-brent-wti-us-iran-war-trump.html" target="_blank">Brent pares gains after hitting 4-year highs as report stokes worries of U.S. military action against Iran</a>
+    <span class="tag tag-us">原油</span>
   </div>
   
   <div class="news-item">
     
-    <div class="news-meta">[MarketWatch · 23:44]</div>
+    <div class="news-meta">[BBC Business · 06:55]</div>
+    
+    <a href="https://www.bbc.com/news/articles/cx21m88rd14o?at_medium=RSS&at_campaign=rss" target="_blank">Oil jumps to highest price since 2022 after report Trump to be briefed on new Iran options</a>
+    <span class="tag tag-us">原油</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[MarketWatch · 23:13]</div>
     
     <a href="https://www.marketwatch.com/story/powell-says-hell-stay-at-fed-as-governor-after-his-term-as-chair-ends-in-mid-may-c906c044?mod=mw_rss_topstories" target="_blank">Powell won't leave the Fed, pushing back further against Trump</a>
-    <span class="tag tag-us">Fed政策</span>
+    <span class="tag tag-us">Fed決議</span>
   </div>
   
   <div class="news-item">
@@ -1001,14 +1014,6 @@
     
     <a href="https://www.bbc.com/news/articles/c62rm4zk3kgo?at_medium=RSS&at_campaign=rss" target="_blank">Four key takeaways from Jerome Powell's final rate decision as Fed chair</a>
     <span class="tag tag-us">Fed決議</span>
-  </div>
-  
-  <div class="news-item">
-    
-    <div class="news-meta">[BBC Business · 06:55]</div>
-    
-    <a href="https://www.bbc.com/news/articles/cx21m88rd14o?at_medium=RSS&at_campaign=rss" target="_blank">Oil jumps to highest price since 2022 after report Trump to be briefed on new Iran options</a>
-    <span class="tag tag-us">商品期貨</span>
   </div>
   
   
@@ -1030,19 +1035,14 @@
     </div>
     
     <div>
-      <div class="industry-name">半導體設備(美)</div>
+      <div class="industry-name">記憶體(美)</div>
       
       <div class="news-item">
         
-        <div class="news-meta">[Ars Technica · 16:06]</div>
+        <div class="news-meta">[CNBC · 02:05]</div>
         
-        <a href="https://arstechnica.com/gadgets/2026/04/nvidia-fixes-the-8gb-ram-problem-with-one-of-its-gpus-if-you-can-pay-for-it/" target="_blank">Nvidia fixes the 8GB RAM problem with one of its GPUs—if you can pay for it</a>
+        <a href="https://www.cnbc.com/2026/04/29/microsoft-msft-q3-earnings-report-2026.html" target="_blank">Microsoft calls for $190 billion in 2026 capital spending on soaring memory prices</a>
       </div>
-      
-    </div>
-    
-    <div>
-      <div class="industry-name">記憶體(美)</div>
       
       <div class="news-item">
         
@@ -1058,23 +1058,23 @@
       
       <div class="news-item">
         
-        <div class="news-meta">[CNBC · 02:31]</div>
+        <div class="news-meta">[Guardian Business · 22:37]</div>
         
-        <a href="https://www.cnbc.com/2026/04/29/alphabet-googl-q1-2026-earnings.html" target="_blank">Alphabet ups 2026 capex to as much as $190 billion, expects to 'significantly increase' in 2027</a>
+        <a href="https://www.theguardian.com/technology/2026/apr/29/earnings-ai-boom-us-stock-markets" target="_blank">Tech giants' results show rosy outlook for AI boom and US stock market</a>
       </div>
       
       <div class="news-item">
         
-        <div class="news-meta">[CNBC · 02:05]</div>
-        
-        <a href="https://www.cnbc.com/2026/04/29/microsoft-msft-q3-earnings-report-2026.html" target="_blank">Microsoft calls for $190 billion in 2026 capital spending on soaring memory prices</a>
-      </div>
-      
-      <div class="news-item">
-        
-        <div class="news-meta">[MarketWatch · 00:46]</div>
+        <div class="news-meta">[MarketWatch · 00:43]</div>
         
         <a href="https://www.marketwatch.com/story/why-alphabets-stock-is-the-standout-gainer-on-big-techs-monster-earnings-day-bb49b193?mod=mw_rss_topstories" target="_blank">Why Alphabet's stock is the standout gainer on Big Tech's monster earnings day</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[TechCrunch · 22:20]</div>
+        
+        <a href="https://techcrunch.com/2026/04/29/google-cloud-surpasses-20b-but-says-growth-was-capacity-constrained/" target="_blank">Google Cloud surpasses $20B, but says growth was capacity-constrained</a>
       </div>
       
     </div>
@@ -1084,9 +1084,47 @@
       
       <div class="news-item">
         
-        <div class="news-meta">[CNBC · 05:00]</div>
+        <div class="news-meta">[TechCrunch · 23:55]</div>
         
-        <a href="https://www.cnbc.com/2026/04/30/nvidia-backs-ai-legal-tech-legora.html" target="_blank">Nvidia just invested in the AI legal startup that's splashing Jude Law ads everywhere</a>
+        <a href="https://techcrunch.com/2026/04/29/satya-nadella-says-hes-ready-to-exploit-the-new-openai-deal/" target="_blank">Satya Nadella says he's ready to 'exploit' the new OpenAI deal</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[VentureBeat · 21:14]</div>
+        
+        <a href="https://venturebeat.com/technology/amazons-openai-gambit-signals-a-new-phase-in-the-cloud-wars-one-where-exclusivity-no-longer-applies/" target="_blank">Amazon's OpenAI gambit signals a new phase in the cloud wars — one where exclusivity no longer applies</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[TechCrunch · 00:07]</div>
+        
+        <a href="https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/" target="_blank">Anthropic could raise a new $50B round at a valuation of $900B</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">金融(美)</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[CNBC · 07:49]</div>
+        
+        <a href="https://www.cnbc.com/2026/04/30/private-credit-risk-banks-europe-earnings-barclays-ubs-debt-santander.html" target="_blank">Private credit fears loom large over Europe's banks this earnings season</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">生技(美)</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[Yahoo Finance · 20:08]</div>
+        
+        <a href="https://www.investors.com/news/technology/novartis-stock-novartis-earnings-q1-2026/?src=A00220&yptr=yahoo" target="_blank">Novartis Yo-Yoes As Generics Take A Bite Out Of Its First-Quarter Sales</a>
       </div>
       
     </div>
@@ -1104,14 +1142,14 @@
   <div class="inner-header">熱門話題股</div>
   
   <div class="hot-stock">
-    <div class="hot-company">NXPI (恩智浦半導體)</div>
-    <div class="hot-reason">美股昨日漲幅25.55%，為所有個股最大漲幅，AI晶片需求旺盛帶動</div>
+    <div class="hot-company">健策 (3653)</div>
+    <div class="hot-reason">醫療耗材龍頭漲10%，市場看好長照3.0商機與杏一等同業轉型拉動需求。</div>
     
     <div class="hot-news">
       
       <div class="hot-news-row">
         <span class="hot-news-arrow">↳</span>
-        <a href="https://www.marketwatch.com/story/why-qualcomms-stock-is-soaring-even-in-the-face-of-a-weak-outlook-560f4546?mod=mw_rss_topstories" target="_blank">Why Qualcomm's stock is soaring even in the face of a weak outlook</a>
+        <a href="https://money.udn.com/money/story/5612/9474527" target="_blank">杏一法說會／兩岸展店轉趨審慎 強攻長照3.0商機</a>
       </div>
       
     </div>
@@ -1119,14 +1157,14 @@
   </div>
   
   <div class="hot-stock">
-    <div class="hot-company">INTC (英特爾)</div>
-    <div class="hot-reason">美股昨日漲幅12.10%，AI復甦期待推升半導體龍頭估值修復</div>
+    <div class="hot-company">一詮 (2486)</div>
+    <div class="hot-reason">輪胎大廠漲9.98%，受惠伊朗局勢升溫油價上行與國際運價反彈。</div>
     
     <div class="hot-news">
       
       <div class="hot-news-row">
         <span class="hot-news-arrow">↳</span>
-        <a href="https://www.theguardian.com/technology/2026/apr/29/earnings-ai-boom-us-stock-markets" target="_blank">Tech giants' results show rosy outlook for AI boom and US stock market</a>
+        <a href="https://money.udn.com/money/story/5612/9474506" target="_blank">SCFI運價指數終結連二跌 美西線漲幅達5%</a>
       </div>
       
     </div>
@@ -1134,19 +1172,32 @@
   </div>
   
   <div class="hot-stock">
-    <div class="hot-company">MSFT (微軟)</div>
-    <div class="hot-reason">宣佈2026年資本支出190億美元，Copilot已有2000萬付費使用者，AI營收年化成長123%</div>
+    <div class="hot-company">台肥 (1722)</div>
+    <div class="hot-reason">化肥股漲9.93%，受益農業政策支持與國際肥料價格上漲。</div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">中華化 (1727)</div>
+    <div class="hot-reason">化工類股漲9.91%，隨國際大宗商品上行與亞洲化工景氣改善預期。</div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">NXPI (NXP)</div>
+    <div class="hot-reason">恩智浦美股暴漲25.55%，Q1業績與前瞻指引超預期，晶片設計龍頭復甦信號強烈。</div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">INTC (Intel)</div>
+    <div class="hot-reason">英特爾勁升12.10%，獲利回升加上AI伺服器訂單動能，重振市場信心。</div>
     
     <div class="hot-news">
       
       <div class="hot-news-row">
         <span class="hot-news-arrow">↳</span>
-        <a href="https://www.cnbc.com/2026/04/29/microsoft-msft-q3-earnings-report-2026.html" target="_blank">Microsoft calls for $190 billion in 2026 capital spending on soaring memory prices</a>
-      </div>
-      
-      <div class="hot-news-row">
-        <span class="hot-news-arrow">↳</span>
-        <a href="https://techcrunch.com/2026/04/29/microsoft-says-it-has-over-20m-paid-copilot-users-and-they-really-are-using-it/" target="_blank">Microsoft says it has over 20M paid Copilot users, and they really are using it</a>
+        <a href="https://www.fool.com/investing/2026/04/29/fantastic-news-for-intel-stock-investors/?source=iedfolrf0000001" target="_blank">Fantastic News for Intel Stock Investors!</a>
       </div>
       
     </div>
@@ -1154,69 +1205,32 @@
   </div>
   
   <div class="hot-stock">
-    <div class="hot-company">GOOGL (Google/Alphabet)</div>
-    <div class="hot-reason">資本支出上調至190億美元，Google Cloud營收超20B、Q1新增2500萬訂閱，Search查詢量創新高</div>
-    
-    <div class="hot-news">
-      
-      <div class="hot-news-row">
-        <span class="hot-news-arrow">↳</span>
-        <a href="https://www.cnbc.com/2026/04/29/alphabet-googl-q1-2026-earnings.html" target="_blank">Alphabet ups 2026 capex to as much as $190 billion, expects to 'significantly increase' in 2027</a>
-      </div>
-      
-      <div class="hot-news-row">
-        <span class="hot-news-arrow">↳</span>
-        <a href="https://techcrunch.com/2026/04/29/google-cloud-surpasses-20b-but-says-growth-was-capacity-constrained/" target="_blank">Google Cloud surpasses $20B, but says growth was capacity-constrained</a>
-      </div>
-      
-    </div>
+    <div class="hot-company">力成 (6239)</div>
+    <div class="hot-reason">封測龍頭跌6.41%，與美股晶片股強勢形成反差，或反映市場對台灣產能配置擔憂。</div>
     
   </div>
   
   <div class="hot-stock">
-    <div class="hot-company">META (Meta/Facebook)</div>
-    <div class="hot-reason">股價下跌因Q1大幅增加AI支出計畫，伊朗衝突造成用戶斷線影響營收，AI投資與營利平衡成疑</div>
-    
-    <div class="hot-news">
-      
-      <div class="hot-news-row">
-        <span class="hot-news-arrow">↳</span>
-        <a href="https://www.cnbc.com/2026/04/29/meta-q1-earnings-report-2026.html" target="_blank">Meta stock drops on quarterly results as 'internet disruptions' in Iran drag down user numbers</a>
-      </div>
-      
-      <div class="hot-news-row">
-        <span class="hot-news-arrow">↳</span>
-        <a href="https://www.bbc.com/news/articles/crkpd4r2y7eo?at_medium=RSS&at_campaign=rss" target="_blank">Meta shares slide as plan to spend billions more on AI spooks investors</a>
-      </div>
-      
-    </div>
+    <div class="hot-company">可成 (2474)</div>
+    <div class="hot-reason">精密加工大廠跌6.28%，蘋果供應鏈需求疲弱信號浮現。</div>
     
   </div>
   
   <div class="hot-stock">
-    <div class="hot-company">AAPL (Apple)</div>
-    <div class="hot-reason">執行長更替：Tim Cook宣佈卸任，產品設計主管John Ternus接棒，領導層變動引發市場關注</div>
-    
-    <div class="hot-news">
-      
-      <div class="hot-news-row">
-        <span class="hot-news-arrow">↳</span>
-        <a href="https://www.dw.com/en/tim-cook-to-step-down-as-apple-ceo-john-ternus-to-take-over/a-76873245?maca=en-rss-en-bus-2091-rdf" target="_blank">Tim Cook to step down as Apple CEO, John Ternus to take over</a>
-      </div>
-      
-    </div>
+    <div class="hot-company">華新科 (2492)</div>
+    <div class="hot-reason">被動元件跌5.28%，反應電子消費端需求偏弱與庫存調整壓力。</div>
     
   </div>
   
   <div class="hot-stock">
-    <div class="hot-company">致茂(2396)</div>
-    <div class="hot-reason">台灣上市，首季淨利38.6億元季增46%，EPS達9.12元，財報亮眼</div>
+    <div class="hot-company">SNDK (SanDisk)</div>
+    <div class="hot-reason">美股記憶體類股，股價3年漲3000%近期盤整，微軟資本支出提高將直接刺激NAND需求。</div>
     
     <div class="hot-news">
       
       <div class="hot-news-row">
         <span class="hot-news-arrow">↳</span>
-        <a href="https://money.udn.com/money/story/5612/9474383" target="_blank">致茂財報／首季淨利38.6億元、季增46% EPS 達9.12元</a>
+        <a href="https://finance.yahoo.com/markets/stocks/articles/sandisk-q3-earnings-preview-more-200222339.html" target="_blank">Sandisk Q3 Earnings Preview: Is More Upside Ahead for SNDK Stock?</a>
       </div>
       
     </div>
@@ -1229,50 +1243,42 @@
   <div class="inner-header">潛力關注股</div>
   
   <div class="radar-item">
+    <div class="radar-company">Meta (META)</div>
+    <div class="radar-reason">伊朗網路中斷導致用戶數與廣告收入承壓，且Meta繼續加碼AI研發燒錢，AR/VR部門虧損擴大引發投資者疑慮。</div>
+    <div class="radar-basis">
+      依據：<a href="https://www.cnbc.com/2026/04/29/meta-q1-earnings-report-2026.html" target="_blank" style="color:var(--blue-link);text-decoration:none;">Meta Q1決算與CNBC/BBC報導</a>
+    </div>
+  </div>
+  
+  <div class="radar-item">
+    <div class="radar-company">Nvidia (NVDA)</div>
+    <div class="radar-reason">晶片龍頭儘管股價面臨高估擔憂，惟微軟資本支出提高與企業GPU需求旺盛，維持長期成長動力。</div>
+    <div class="radar-basis">
+      依據：<a href="https://www.fool.com/investing/2026/04/29/nvidia-stock-has-1-problem-heres-why-im-buying-any/?source=iedfolrf0000001" target="_blank" style="color:var(--blue-link);text-decoration:none;">Motley Fool Nvidia分析</a>
+    </div>
+  </div>
+  
+  <div class="radar-item">
     <div class="radar-company">Amazon (AMZN)</div>
-    <div class="radar-reason">AWS成長28%創15季新高，Cloud業務加速，資本支出持續增加支撐AI基建競賽</div>
+    <div class="radar-reason">AWS雲端服務成長28%創15季新高，且與OpenAI合作擴大云端市佔率，雲端獲利成為未來營收主要引擎。</div>
     <div class="radar-basis">
-      依據：<a href="https://techcrunch.com/2026/04/29/amazons-cloud-business-is-surging-and-so-is-its-capital-spending/" target="_blank" style="color:var(--blue-link);text-decoration:none;">Amazon財報出爐，AWS成長28%，創15季新高；Amazon's cloud business is surging</a>
-    </div>
-  </div>
-  
-  <div class="radar-item">
-    <div class="radar-company">Anthropic</div>
-    <div class="radar-reason">融資輪新估值可能達900億美元，新融資50億美元，頭部AI新創估值持續攀升</div>
-    <div class="radar-basis">
-      依據：<a href="https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/" target="_blank" style="color:var(--blue-link);text-decoration:none;">Sources: Anthropic could raise a new $50B round at a valuation of $900B</a>
-    </div>
-  </div>
-  
-  <div class="radar-item">
-    <div class="radar-company">SoftBank 機器人新公司</div>
-    <div class="radar-reason">軟銀創設機器人公司專門建造數據中心，融資目標100億美元IPO，AI基建新思路</div>
-    <div class="radar-basis">
-      依據：<a href="https://techcrunch.com/2026/04/29/softbank-is-creating-a-robotics-company-that-builds-data-centers-and-already-eyeing-a-100b-ipo/" target="_blank" style="color:var(--blue-link);text-decoration:none;">SoftBank is creating a robotics company that builds data centers — and already eyeing a $100B IPO</a>
-    </div>
-  </div>
-  
-  <div class="radar-item">
-    <div class="radar-company">Ford (F)</div>
-    <div class="radar-reason">一季獲利大幅成長，成功抵禦EV銷售放緩衝擊，傳統車廠獲利韌性顯現</div>
-    <div class="radar-basis">
-      依據：<a href="https://www.marketwatch.com/story/fords-profit-jumps-as-carmaker-powers-through-an-ev-slowdown-9f799848?mod=mw_rss_topstories" target="_blank" style="color:var(--blue-link);text-decoration:none;">Ford's profit jumps as carmaker powers through an EV slowdown</a>
-    </div>
-  </div>
-  
-  <div class="radar-item">
-    <div class="radar-company">Volkswagen (VW)</div>
-    <div class="radar-reason">一季獲利下降14%，成本削減計畫力度不足，歐洲車廠獲利壓力升高</div>
-    <div class="radar-basis">
-      依據：<a href="https://www.cnbc.com/2026/04/30/volkswagen-q1-earnings-autos.html" target="_blank" style="color:var(--blue-link);text-decoration:none;">Volkswagen warns planned cost cuts are not enough after 14% drop in first-quarter profit</a>
+      依據：<a href="https://www.ithome.com.tw/news/175453" target="_blank" style="color:var(--blue-link);text-decoration:none;">Amazon Q1決算與iThome報導</a>
     </div>
   </div>
   
   <div class="radar-item">
     <div class="radar-company">Stellantis (STLA)</div>
-    <div class="radar-reason">股票下跌7%，Jeep製造商一季財報不佳，車廠獲利前景承壓</div>
+    <div class="radar-reason">第一季獲利腰斬下跌10%以上，Jeep與歐洲車市疲軟，EV轉型進度滯後於競爭者，成為傳統車企轉型困境代表。</div>
     <div class="radar-basis">
-      依據：<a href="https://www.cnbc.com/2026/04/30/stellantis-q1-earnings-jeep-autos.html" target="_blank" style="color:var(--blue-link);text-decoration:none;">Shares of Jeep maker Stellantis fall more than 7% after first-quarter results</a>
+      依據：<a href="https://www.cnbc.com/2026/04/30/stellantis-q1-earnings-jeep-autos.html" target="_blank" style="color:var(--blue-link);text-decoration:none;">Stellantis Q1決算</a>
+    </div>
+  </div>
+  
+  <div class="radar-item">
+    <div class="radar-company">Volkswagen (VOW)</div>
+    <div class="radar-reason">第一季獲利下滑14%，成本削減計畫仍不足以抵禦中國競爭與EV需求不足，歐洲汽車產業景氣轉向確立。</div>
+    <div class="radar-basis">
+      依據：<a href="https://www.cnbc.com/2026/04/30/volkswagen-q1-earnings-autos.html" target="_blank" style="color:var(--blue-link);text-decoration:none;">Volkswagen Q1決算</a>
     </div>
   </div>
   
