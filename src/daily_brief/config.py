@@ -189,7 +189,7 @@ INDUSTRY_KEYWORDS = {
         "長榮", "陽明", "萬海", "貨櫃", "運費", "運價", "SCFI", "BDI",
         "Evergreen", "航運", "shipping", "關稅衝擊",
     ],
-    "科技巨頭(美)": [
+    "Big Tech(美)": [
         "Apple", "蘋果", "Microsoft", "微軟", "Google", "Alphabet", "Meta",
         "Amazon", "AWS", "Azure", "GCP", "OpenAI", "Anthropic",
     ],

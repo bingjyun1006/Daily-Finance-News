@@ -12,6 +12,19 @@ IMPORTANT_EVENTS = [
 ]
 
 EVENT_CN = {
+    # 更具體的 PMI 須排在 "PMI" fallback 之前
+    "ISM Manufacturing":        "ISM 製造業 PMI",
+    "ISM Non-Manufacturing":    "ISM 非製造業 PMI",
+    "ISM Services":             "ISM 服務業 PMI",
+    "S&P Global Manufacturing": "Markit 製造業 PMI",
+    "S&P Global Services":      "Markit 服務業 PMI",
+    "S&P Global Composite":     "Markit 綜合 PMI",
+    "Manufacturing PMI":        "製造業 PMI",
+    "Services PMI":             "服務業 PMI",
+    "Composite PMI":            "綜合 PMI",
+    "ISM":                      "ISM PMI",
+    "PMI":                      "採購經理人指數 PMI",
+    # 其他總經事件
     "Non-Farm":          "非農就業",
     "NFP":               "非農就業",
     "CPI":               "消費者物價指數 CPI",
@@ -20,10 +33,6 @@ EVENT_CN = {
     "FOMC":              "Fed 利率決議",
     "Interest Rate":     "Fed 利率決議",
     "GDP":               "GDP 季增率",
-    "ISM Manufacturing": "ISM 製造業 PMI",
-    "ISM Services":      "ISM 服務業 PMI",
-    "ISM":               "ISM PMI",
-    "PMI":               "採購經理人指數 PMI",
     "Unemployment":      "失業率",
     "Retail Sales":      "零售銷售",
     "Consumer Confidence": "消費者信心指數",
@@ -72,6 +81,14 @@ def fetch_economic_calendar() -> list[dict]:
                     "country": e.get("country", ""),
                     "impact": impact,
                 })
+        events.sort(key=lambda x: x["date"])
+        # 同一天同翻譯名稱只保留 impact 較高的那筆
+        seen: dict[tuple, dict] = {}
+        for e in events:
+            key = (e["date"], e["name"])
+            if key not in seen or e["impact"] == "high":
+                seen[key] = e
+        events = list(seen.values())
         events.sort(key=lambda x: x["date"])
         return events[:8]
     except Exception as ex:
