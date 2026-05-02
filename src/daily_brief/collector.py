@@ -29,11 +29,13 @@ def _get_rss_cutoff() -> datetime:
 
 def fetch_rss_feeds(max_items_per_source: int = 10) -> list[dict]:
     cutoff = _get_rss_cutoff()
+    is_monday = datetime.now(timezone.utc).weekday() == 0
+    limit = 25 if is_monday else max_items_per_source
     all_articles = []
     for source in RSS_SOURCES:
         try:
             feed = feedparser.parse(source["url"])
-            for entry in feed.entries[:max_items_per_source]:
+            for entry in feed.entries[:limit]:
                 title = entry.get("title", "").strip()
                 link = entry.get("link", "")
                 if not title or not link:
