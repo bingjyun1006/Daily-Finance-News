@@ -1,5 +1,5 @@
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import feedparser
 import urllib3
@@ -20,7 +20,15 @@ def _parse_published_time(entry) -> str:
     return ""
 
 
+def _get_rss_cutoff() -> datetime:
+    """Monday covers the weekend (72h); other days use 36h to catch late-night news."""
+    now = datetime.now(timezone.utc)
+    hours = 72 if now.weekday() == 0 else 36
+    return now - timedelta(hours=hours)
+
+
 def fetch_rss_feeds(max_items_per_source: int = 10) -> list[dict]:
+    cutoff = _get_rss_cutoff()
     all_articles = []
     for source in RSS_SOURCES:
         try:
@@ -30,6 +38,11 @@ def fetch_rss_feeds(max_items_per_source: int = 10) -> list[dict]:
                 link = entry.get("link", "")
                 if not title or not link:
                     continue
+                # Drop entries older than cutoff; keep entries with no timestamp
+                if hasattr(entry, "published_parsed") and entry.published_parsed:
+                    pub_dt = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+                    if pub_dt < cutoff:
+                        continue
                 all_articles.append({
                     "source": source["name"],
                     "category": source["category"],
