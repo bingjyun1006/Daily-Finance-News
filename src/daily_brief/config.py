@@ -2,8 +2,6 @@ RSS_SOURCES = [
     # 台股（確定可用）
     {"name": "鉅亨網",        "url": "https://news.cnyes.com/rss/id/headline",                         "category": "台股"},
     {"name": "經濟日報",      "url": "https://money.udn.com/rssfeed/news/1001/5591",                   "category": "台股"},
-    {"name": "經濟日報產業", "url": "https://money.udn.com/rssfeed/news/1001/5612",                   "category": "台股"},
-    {"name": "經濟日報科技", "url": "https://money.udn.com/rssfeed/news/1001/11162",                  "category": "台股"},
     {"name": "工商時報",      "url": "https://www.ctee.com.tw/feed",                                   "category": "台股"},
     {"name": "MOPS",          "url": "https://mops.twse.com.tw/mops/web/rss",                         "category": "台股"},
     {"name": "中央社財經",    "url": "https://www.cna.com.tw/cna/rss/cat/biz.xml",                    "category": "台股"},
