@@ -17,6 +17,8 @@ RSS_SOURCES = [
     {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/rss/topstories",                      "category": "美股"},
     {"name": "MarketWatch",   "url": "https://feeds.marketwatch.com/marketwatch/topstories/",         "category": "美股"},
     {"name": "Benzinga",      "url": "https://www.benzinga.com/feed",                                 "category": "美股"},
+    {"name": "Bloomberg",     "url": "https://feeds.bloomberg.com/markets/news.rss",                  "category": "美股"},
+    {"name": "WSJ",           "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",                "category": "美股"},
     # 總經（測試中）
     {"name": "Investing.com", "url": "https://tw.investing.com/rss/news.rss",                        "category": "總經"},
     {"name": "Fed官方",       "url": "https://www.federalreserve.gov/feeds/press_all.xml",            "category": "總經"},
@@ -26,14 +28,16 @@ RSS_SOURCES = [
     {"name": "BBC Business",      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",            "category": "國際"},
     {"name": "Guardian Business", "url": "https://www.theguardian.com/uk/business/rss",               "category": "國際"},
     {"name": "DW Business",       "url": "https://rss.dw.com/rdf/rss-en-bus",                        "category": "國際"},
+    {"name": "FT",                "url": "https://www.ft.com/markets?format=rss",                    "category": "國際"},
     # 科技 & AI
-    {"name": "TechCrunch",    "url": "https://techcrunch.com/feed/",                                  "category": "科技"},
-    {"name": "The Verge",     "url": "https://www.theverge.com/rss/index.xml",                        "category": "科技"},
-    {"name": "VentureBeat",   "url": "https://venturebeat.com/feed/",                                 "category": "科技"},
-    {"name": "Ars Technica",  "url": "https://feeds.arstechnica.com/arstechnica/index/",              "category": "科技"},
-    {"name": "Wired",         "url": "https://www.wired.com/feed/rss",                                "category": "科技"},
-    {"name": "iThome",        "url": "https://www.ithome.com.tw/rss",                                 "category": "科技"},
-    {"name": "數位時代",      "url": "https://www.bnext.com.tw/rss",                                  "category": "科技"},
+    {"name": "TechCrunch",         "url": "https://techcrunch.com/feed/",                             "category": "科技"},
+    {"name": "The Verge",          "url": "https://www.theverge.com/rss/index.xml",                   "category": "科技"},
+    {"name": "VentureBeat",        "url": "https://venturebeat.com/feed/",                            "category": "科技"},
+    {"name": "Ars Technica",       "url": "https://feeds.arstechnica.com/arstechnica/index/",         "category": "科技"},
+    {"name": "Wired",              "url": "https://www.wired.com/feed/rss",                           "category": "科技"},
+    {"name": "Bloomberg Tech",     "url": "https://feeds.bloomberg.com/technology/news.rss",          "category": "科技"},
+    {"name": "iThome",             "url": "https://www.ithome.com.tw/rss",                            "category": "科技"},
+    {"name": "數位時代",           "url": "https://www.bnext.com.tw/rss",                             "category": "科技"},
 ]
 
 # 市場概覽：大盤指數 + 總經指標（無個股）
