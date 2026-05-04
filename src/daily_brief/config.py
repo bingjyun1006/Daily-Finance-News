@@ -5,6 +5,7 @@ RSS_SOURCES = [
     {"name": "工商時報",      "url": "https://www.ctee.com.tw/feed",                                   "category": "台股"},
     {"name": "MOPS",          "url": "https://mops.twse.com.tw/mops/web/rss",                         "category": "台股"},
     {"name": "中央社財經",    "url": "https://www.cna.com.tw/cna/rss/cat/biz.xml",                    "category": "台股"},
+    {"name": "科技新報",      "url": "https://technews.tw/feed/",                                     "category": "台股"},
     # 台股（測試中）
     {"name": "MoneyDJ",       "url": "https://www.moneydj.com/rss/rss.aspx?a=news",                  "category": "台股"},
     {"name": "今周刊",        "url": "https://www.businesstoday.com.tw/rss/rss.aspx",                 "category": "台股"},
