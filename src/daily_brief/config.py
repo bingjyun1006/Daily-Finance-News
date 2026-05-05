@@ -6,7 +6,9 @@ RSS_SOURCES = [
     {"name": "MOPS",          "url": "https://mops.twse.com.tw/mops/web/rss",                         "category": "台股"},
     {"name": "中央社財經",    "url": "https://www.cna.com.tw/cna/rss/cat/biz.xml",                    "category": "台股"},
     {"name": "科技新報",      "url": "https://technews.tw/feed/",                                     "category": "台股"},
-    # 台股（測試中）
+    {"name": "自由財經",      "url": "https://news.ltn.com.tw/rss/business.xml",                    "category": "台股"},
+    {"name": "股感",          "url": "https://www.stockfeel.com.tw/feed/",                            "category": "台股"},
+    # 台股（測試中，RSS 已失效）
     {"name": "MoneyDJ",       "url": "https://www.moneydj.com/rss/rss.aspx?a=news",                  "category": "台股"},
     {"name": "今周刊",        "url": "https://www.businesstoday.com.tw/rss/rss.aspx",                 "category": "台股"},
     {"name": "財訊快報",      "url": "https://www.wealth.com.tw/rss.aspx",                            "category": "台股"},
@@ -38,6 +40,7 @@ RSS_SOURCES = [
     {"name": "Wired",              "url": "https://www.wired.com/feed/rss",                           "category": "科技"},
     {"name": "Bloomberg Tech",     "url": "https://feeds.bloomberg.com/technology/news.rss",          "category": "科技"},
     {"name": "iThome",             "url": "https://www.ithome.com.tw/rss",                            "category": "科技"},
+    {"name": "TechOrange",         "url": "https://buzzorange.com/techorange/feed/",                  "category": "科技"},
     {"name": "數位時代",           "url": "https://www.bnext.com.tw/rss",                             "category": "科技"},
 ]
 
