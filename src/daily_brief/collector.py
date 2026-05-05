@@ -45,8 +45,14 @@ def fetch_rss_feeds(max_items_per_source: int = 10) -> list[dict]:
                     pub_dt = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
                     if pub_dt < cutoff:
                         continue
+                # For Google News aggregated feeds, use the real publisher name
+                src_name = source["name"]
+                if source["name"].startswith("GNews-"):
+                    entry_source = getattr(entry, "source", None)
+                    if entry_source and entry_source.get("title"):
+                        src_name = entry_source["title"]
                 all_articles.append({
-                    "source": source["name"],
+                    "source": src_name,
                     "category": source["category"],
                     "title": title,
                     "link": link,

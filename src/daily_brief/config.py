@@ -1,19 +1,13 @@
 RSS_SOURCES = [
-    # 台股（確定可用）
-    {"name": "鉅亨網",        "url": "https://news.cnyes.com/rss/id/headline",                         "category": "台股"},
+    # 台股（直接 RSS）
     {"name": "經濟日報",      "url": "https://money.udn.com/rssfeed/news/1001/5591",                   "category": "台股"},
-    {"name": "工商時報",      "url": "https://www.ctee.com.tw/feed",                                   "category": "台股"},
-    {"name": "MOPS",          "url": "https://mops.twse.com.tw/mops/web/rss",                         "category": "台股"},
-    {"name": "中央社財經",    "url": "https://www.cna.com.tw/cna/rss/cat/biz.xml",                    "category": "台股"},
-    {"name": "科技新報",      "url": "https://technews.tw/feed/",                                     "category": "台股"},
-    {"name": "自由財經",      "url": "https://news.ltn.com.tw/rss/business.xml",                    "category": "台股"},
+    {"name": "科技新報",      "url": "https://technews.tw/feed/",                                      "category": "台股"},
+    {"name": "自由財經",      "url": "https://news.ltn.com.tw/rss/business.xml",                      "category": "台股"},
     {"name": "股感",          "url": "https://www.stockfeel.com.tw/feed/",                            "category": "台股"},
-    # 台股（測試中，RSS 已失效）
-    {"name": "MoneyDJ",       "url": "https://www.moneydj.com/rss/rss.aspx?a=news",                  "category": "台股"},
-    {"name": "今周刊",        "url": "https://www.businesstoday.com.tw/rss/rss.aspx",                 "category": "台股"},
-    {"name": "財訊快報",      "url": "https://www.wealth.com.tw/rss.aspx",                            "category": "台股"},
-    {"name": "天下雜誌",      "url": "https://www.cw.com.tw/rss",                                     "category": "台股"},
-    {"name": "商業周刊",      "url": "https://www.businessweekly.com.tw/rss",                         "category": "台股"},
+    # 台股（Google News 聚合，涵蓋已停 RSS 的工商時報、MoneyDJ、天下等媒體）
+    {"name": "GNews-台股",    "url": "https://news.google.com/rss/search?q=%E5%8F%B0%E8%82%A1+%E8%B2%A1%E7%B6%93&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",    "category": "台股"},
+    {"name": "GNews-半導體",  "url": "https://news.google.com/rss/search?q=%E5%8D%8A%E5%B0%8E%E9%AB%94+%E5%8F%B0%E7%81%A3&hl=zh-TW&gl=TW&ceid=TW:zh-Hant", "category": "台股"},
+    {"name": "GNews-外資",    "url": "https://news.google.com/rss/search?q=%E5%A4%96%E8%B3%87+%E5%8F%B0%E8%82%A1&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",    "category": "台股"},
     # 美股
     {"name": "CNBC",          "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html",         "category": "美股"},
     {"name": "Reuters",       "url": "https://feeds.reuters.com/reuters/businessNews",                "category": "美股"},
