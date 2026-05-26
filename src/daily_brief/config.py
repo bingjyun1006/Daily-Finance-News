@@ -10,17 +10,21 @@ RSS_SOURCES = [
     {"name": "GNews-外資",    "url": "https://news.google.com/rss/search?q=%E5%A4%96%E8%B3%87+%E5%8F%B0%E8%82%A1&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",    "category": "台股"},
     # 美股
     {"name": "CNBC",          "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html",         "category": "美股"},
-    {"name": "Reuters",       "url": "https://feeds.reuters.com/reuters/businessNews",                "category": "美股"},
     {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/rss/topstories",                      "category": "美股"},
     {"name": "MarketWatch",   "url": "https://feeds.marketwatch.com/marketwatch/topstories/",         "category": "美股"},
     {"name": "Benzinga",      "url": "https://www.benzinga.com/feed",                                 "category": "美股"},
     {"name": "Bloomberg",     "url": "https://feeds.bloomberg.com/markets/news.rss",                  "category": "美股"},
     {"name": "WSJ",           "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",                "category": "美股"},
-    # 總經（測試中）
-    {"name": "Investing.com", "url": "https://tw.investing.com/rss/news.rss",                        "category": "總經"},
-    {"name": "Fed官方",       "url": "https://www.federalreserve.gov/feeds/press_all.xml",            "category": "總經"},
-    {"name": "US Treasury",   "url": "https://home.treasury.gov/news/press-releases-rss",            "category": "總經"},
     {"name": "Motley Fool",   "url": "https://www.fool.com/feeds/index.aspx",                        "category": "美股"},
+    {"name": "NYT Business",  "url": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",    "category": "美股"},
+    {"name": "GNews-美股EN",  "url": "https://news.google.com/rss/search?q=US+stock+market+finance&hl=en-US&gl=US&ceid=US:en", "category": "美股"},
+    # 總經
+    {"name": "Fed官方",         "url": "https://www.federalreserve.gov/feeds/press_all.xml",                                                                       "category": "總經"},
+    {"name": "US Treasury",     "url": "https://home.treasury.gov/rss.xml",                                                                                        "category": "總經"},
+    {"name": "GNews-總經EN",    "url": "https://news.google.com/rss/search?q=Federal+Reserve+interest+rate+economy&hl=en-US&gl=US&ceid=US:en",                    "category": "總經"},
+    {"name": "ECB",             "url": "https://www.ecb.europa.eu/rss/press.html",                                                                                 "category": "總經"},
+    {"name": "St. Louis Fed",   "url": "https://fredblog.stlouisfed.org/feed/",                                                                                    "category": "總經"},
+    {"name": "GNews-總經TW",    "url": "https://news.google.com/rss/search?q=%E7%B8%BD%E7%B5%93+%E5%88%A9%E7%8E%87+%E8%81%AF%E5%87%86&hl=zh-TW&gl=TW&ceid=TW:zh-Hant", "category": "總經"},
     # 國際
     {"name": "BBC Business",      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",            "category": "國際"},
     {"name": "Guardian Business", "url": "https://www.theguardian.com/uk/business/rss",               "category": "國際"},
@@ -35,7 +39,6 @@ RSS_SOURCES = [
     {"name": "Bloomberg Tech",     "url": "https://feeds.bloomberg.com/technology/news.rss",          "category": "科技"},
     {"name": "iThome",             "url": "https://www.ithome.com.tw/rss",                            "category": "科技"},
     {"name": "TechOrange",         "url": "https://buzzorange.com/techorange/feed/",                  "category": "科技"},
-    {"name": "數位時代",           "url": "https://www.bnext.com.tw/rss",                             "category": "科技"},
 ]
 
 # 市場概覽：大盤指數 + 總經指標（無個股）
