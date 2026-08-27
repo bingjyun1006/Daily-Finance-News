@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>金融早報 2026年08月27日</title>
+  <style>
+    :root {
+      --bg:         #0d1117;
+      --surface:    #161b22;
+      --surface2:   #1c2128;
+      --border:     #30363d;
+      --border2:    #21262d;
+      --text:       #e6edf3;
+      --text-sub:   #adbac7;
+      --text-dim:   #768390;
+      --blue:       #58a6ff;
+      --blue-link:  #658DC6;
+      --blue-dim:   #1f4a8a;
+      --green:      #56d364;
+      --green-dim:  #1a4731;
+      --red:        #ff7b72;
+      --amber:      #e3b341;
+      --purple:     #d2a8ff;
+      --teal:       #39d353;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+      max-width: 780px; margin: 0 auto; padding: 16px;
+      background: var(--bg); color: var(--text);
+      font-size: 18px; line-height: 1.55;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(135deg, #161b22 0%, #0d1117 60%, #111827 100%);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--blue);
+      padding: 22px 26px 18px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      position: relative; overflow: hidden;
+    }
+    .header::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle at top right, rgba(88,166,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .header-brand h1 { font-size: 1.25em; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
+    .header-brand .meta { color: var(--text-sub); font-size: 0.75em; margin-top: 3px; }
+    .header-badge {
+      background: var(--blue-dim); color: var(--blue);
+      font-size: 0.68em; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border: 1px solid rgba(88,166,255,0.3); white-space: nowrap;
+    }
+    .quote-block { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border2); }
+    .quote-en { font-size: 1.05em; font-weight: 500; color: var(--text); line-height: 1.45; font-style: italic; }
+    .quote-zh { font-size: 0.78em; color: var(--text-sub); margin-top: 4px; }
+    .quote-source { font-size: 0.72em; color: var(--text-dim); margin-top: 3px; }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 20px; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 0.9em; font-weight: 700; color: var(--text-sub);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 12px; display: flex; align-items: center; gap: 7px;
+    }
+    .section-title::before {
+      content: ''; display: inline-block; width: 3px; height: 12px;
+      background: var(--blue); border-radius: 2px; flex-shrink: 0;
+    }
+    .section-title.green::before  { background: var(--green); }
+    .section-title.amber::before  { background: var(--amber); }
+    .section-title.purple::before { background: var(--purple); }
+    .section-title.teal::before   { background: var(--teal); }
+
+    /* ── INNER LAYOUT HELPERS ── */
+    .inner-divider { border-top: 1px solid var(--border2); margin: 12px 0 10px; }
+    .inner-header {
+      font-size: 0.72em; font-weight: 700; color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;
+    }
+
+    /* ── NARRATIVE ── */
+    .narrative-summary {
+      font-size: 0.9em; font-weight: 600; color: var(--amber);
+      margin-bottom: 10px; line-height: 1.5;
+    }
+    .narrative-row { display: flex; gap: 10px; align-items: baseline; padding: 4px 0; }
+    .narrative-label {
+      font-size: 0.72em; font-weight: 700; color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.07em;
+      min-width: 58px; flex-shrink: 0; padding-top: 2px;
+    }
+    .narrative-body { font-size: 0.86em; color: var(--text); line-height: 1.6; }
+
+    /* ── HIGHLIGHTS ── */
+    .highlight {
+      padding: 6px 0; border-bottom: 1px solid var(--border2);
+      font-size: 0.86em; line-height: 1.55; color: var(--text);
+      display: flex; gap: 8px;
+    }
+    .highlight:last-child { border-bottom: none; }
+    .highlight::before { content: "▸"; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+
+    /* ── MARKET TABLE ── */
+    .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .market-group-title {
+      font-size: 0.82em; font-weight: 600; color: var(--text-sub);
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { padding: 5px 6px; text-align: left; border-bottom: 1px solid var(--border2); font-size: 0.82em; }
+    th { font-weight: 600; color: var(--text-dim); font-size: 0.7em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: none; }
+    .up  { color: var(--green); font-weight: 600; }
+    .dn  { color: var(--red);   font-weight: 600; }
+    .na  { color: var(--text-dim); }
+    td:first-child { color: var(--text); }
+
+    /* ── MOVERS 3-COL ── */
+    .movers-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .movers-col-title {
+      font-size: 0.76em; font-weight: 700; margin-bottom: 7px;
+      padding-bottom: 5px; border-bottom: 1px solid var(--border);
+    }
+    .movers-sub {
+      font-size: 0.7em; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--text-dim); margin: 8px 0 4px;
+    }
+    .mover-item { padding: 4px 0; border-bottom: 1px solid var(--border2); }
+    .mover-item:last-child { border-bottom: none; }
+    .mover-row { display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap; }
+    .mover-name { font-weight: 600; font-size: 0.78em; color: var(--text); }
+    .mover-cn   { font-size: 0.72em; color: var(--text-dim); }
+    .mover-pct  { font-weight: 700; font-size: 0.8em; margin-left: auto; }
+    .mover-news { font-size: 0.72em; color: var(--text-sub); margin-top: 2px; }
+    .mover-news a { color: var(--blue-link); text-decoration: underline; text-decoration-color: rgba(101,141,198,0.3); }
+    .mover-news a:hover { text-decoration-color: var(--blue-link); }
+
+    /* ── NEWS ── */
+    .news-item { padding: 7px 0; border-bottom: 1px solid var(--border2); }
+    .news-item:last-child { border-bottom: none; }
+    .news-meta { font-size: 0.7em; color: var(--text-dim); margin-bottom: 2px; }
+    .news-item a { color: var(--blue-link); text-decoration: underline; text-decoration-color: rgba(101,141,198,0.3); font-size: 0.84em; line-height: 1.45; }
+    .news-item a:hover { text-decoration-color: var(--blue-link); opacity: 0.9; }
+    .tag {
+      display: inline-block; padding: 1px 7px; border-radius: 4px;
+      font-size: 0.68em; font-weight: 600; margin-left: 6px; vertical-align: middle;
+      border: 1px solid transparent;
+    }
+    .tag-tw { background: rgba(86,211,100,0.12);  color: var(--green);  border-color: rgba(86,211,100,0.25); }
+    .tag-us { background: rgba(210,168,255,0.12); color: var(--purple); border-color: rgba(210,168,255,0.25); }
+
+    /* ── INDUSTRY ── */
+    .industry-grid { columns: 2; column-gap: 14px; }
+    .industry-grid > div { break-inside: avoid; margin-bottom: 14px; }
+    .industry-name { font-weight: 700; font-size: 0.88em; color: var(--text-sub); margin-bottom: 5px; }
+
+    /* ── HOT STOCKS / RADAR ── */
+    .hot-stock { padding: 9px 0; border-bottom: 1px solid var(--border2); }
+    .hot-stock:last-child { border-bottom: none; }
+    .hot-company { font-weight: 700; font-size: 0.88em; color: var(--amber); }
+    .hot-reason  { color: var(--text-sub); font-size: 0.82em; margin: 3px 0 5px; }
+    .hot-news a  { color: var(--blue-link); font-size: 0.82em; text-decoration: underline; text-decoration-color: rgba(101,141,198,0.3); }
+    .hot-news a:hover { text-decoration-color: var(--blue-link); }
+    .hot-news-row { display: flex; align-items: baseline; gap: 5px; margin-top: 2px; }
+    .hot-news-arrow { color: var(--text-dim); font-size: 0.75em; flex-shrink: 0; }
+
+    .radar-item { padding: 8px 0; border-bottom: 1px solid var(--border2); }
+    .radar-item:last-child { border-bottom: none; }
+    .radar-company { font-weight: 700; font-size: 0.88em; color: var(--blue); }
+    .radar-reason { color: var(--text-sub); font-size: 0.82em; margin: 3px 0 2px; }
+    .radar-basis  { font-size: 0.75em; color: var(--text-dim); }
+
+    /* ── CALENDAR ── */
+    .cal-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 5px 0; border-bottom: 1px solid var(--border2); font-size: 0.82em;
+    }
+    .cal-item:last-child { border-bottom: none; }
+    .cal-date { color: var(--text-dim); min-width: 78px; font-size: 0.88em; flex-shrink: 0; }
+    .cal-name { color: var(--text); flex: 1; }
+    .cal-badge {
+      font-size: 0.7em; font-weight: 700; padding: 1px 6px;
+      border-radius: 3px; white-space: nowrap; flex-shrink: 0;
+    }
+    .cal-high   { background: rgba(255,123,114,0.15); color: var(--red); }
+    .cal-medium { background: rgba(227,179,65,0.15);  color: var(--amber); }
+    .cal-timing { font-size: 0.75em; color: var(--text-dim); flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center; color: var(--text-dim);
+      font-size: 0.7em; margin-top: 18px; padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="header-brand">
+      <h1>金融早報</h1>
+      <div class="meta">2026年08月27日 &nbsp;·&nbsp; 台股開盤前速覽</div>
+    </div>
+    <div class="header-badge">Daily Brief</div>
+  </div>
+  
+  
+  <div class="quote-block">
+    <div class="quote-en">"In any moment of decision, the best thing you can do is the right thing, the next best thing is the wrong thing, and the worst thing you can do is nothing."</div>
+    <div class="quote-zh">在任何決策時刻，最好的做法是做正確的事，次好的是做錯誤的事，最壞的是什麼都不做。</div>
+    <div class="quote-source">— Theodore Roosevelt</div>
+  </div>
+  
+</div>
+
+<!-- 今日市場解析 -->
+
+
+<div class="card" style="border-left: 3px solid var(--amber);">
+  <div class="section-title amber">今日市場解析</div>
+  
+    
+    <div class="narrative-summary">美債殖利率飆升與AI強勁需求並行，台股高價股狂漲但航運大跌映K型分化加劇。</div>
+    
+    
+    <div style="margin-bottom: 4px;">
+      
+      <div class="narrative-row">
+        <span class="narrative-label">台股</span>
+        <span class="narrative-body">加權指數昨日大漲663點至45832點，惟今日收盤持平(45169.46點)，高價股與AI相關個股衝鋒，惟航運類股(陽明-9.43%、萬海-9.09%)大幅跌落，反映K型經濟加劇。</span>
+      </div>
+      
+      <div class="narrative-row">
+        <span class="narrative-label">美股</span>
+        <span class="narrative-body">三大指數昨日小幅下跌(S&P跌0.02%、NASDAQ跌0.08%)，輝達財報後盤後漲4%宣示2027營收增70%，惟市場高期望已反映；CRWD、CRM、OKTA等AI安全與SaaS個股漲勢強勁。</span>
+      </div>
+      
+      <div class="narrative-row">
+        <span class="narrative-label">總經</span>
+        <span class="narrative-body">7月PCE符合預期(核心3.3%)惟10Y美債殖利率飆至4.66%創新高，美元指數升至99.12，暗示市場對Fed政策路徑預期調整，貨幣政策與財政政策張力浮現。</span>
+      </div>
+      
+      <div class="narrative-row">
+        <span class="narrative-label">今日關注</span>
+        <span class="narrative-body">半導體在地化與太空產業訂單(SpaceX、台積電2030採購)、Meta和解對科技監管前景之影響、以及美債殖利率上升對高成長科技股估值的壓力。</span>
+      </div>
+      
+    </div>
+    
+  
+  
+  <div class="inner-divider"></div>
+  <div class="inner-header">重點速覽</div>
+  
+  <div class="highlight">輝達財報預告2027年營收增幅70%，惟盤後漲幅僅4%反映高期望已計入</div>
+  
+  <div class="highlight">台股昨日狂漲663點至45832點，高價股(大立光6290元創天價)集體衝鋒但成交量增</div>
+  
+  <div class="highlight">Meta斥資18-17.1億美元和解未成年人成癮訴訟，業界憂虞年齡認證技術實效性</div>
+  
+  <div class="highlight">10年期美債殖利率跳升至4.66%創新高(+0.65%)，美元指數走升至99.12，資金流向調整</div>
+  
+  <div class="highlight">台灣半導體供應鏈加速在地化：台積電2030年在地採購七大關鍵數字公開，SpaceX星艦基地預算3.2兆台幣吸納台廠</div>
+  
+  
+</div>
+
+
+<!-- 市場速覽 -->
+<div class="card">
+  <div class="section-title">市場速覽</div>
+  <div class="market-grid">
+    
+    <div>
+      <div class="market-group-title">大盤</div>
+      <table>
+        <tr><th>指標</th><th>數值</th><th>漲跌</th></tr>
+        
+        
+        <tr>
+          <td>台灣加權</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            45169.46
+          </td>
+          <td>
+            
+              <span class="up">
+                +0.0%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>元大台灣50</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            nan
+          </td>
+          <td>
+            
+              <span class="dn">
+                nan%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>S&P 500</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            7675.7
+          </td>
+          <td>
+            
+              <span class="dn">
+                -0.02%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>NASDAQ</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            26130.2
+          </td>
+          <td>
+            
+              <span class="dn">
+                -0.08%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>道瓊</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            53463.88
+          </td>
+          <td>
+            
+              <span class="dn">
+                -0.21%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>費半(SOX)</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            11611.24
+          </td>
+          <td>
+            
+              <span class="up">
+                +0.2%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>恒生</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            25511.1
+          </td>
+          <td>
+            
+              <span class="up">
+                +0.0%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>日經225</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            66533.32
+          </td>
+          <td>
+            
+              <span class="up">
+                +0.0%
+              </span>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div>
+      <div class="market-group-title">總經</div>
+      <table>
+        <tr><th>指標</th><th>數值</th><th>漲跌</th></tr>
+        
+        
+        <tr>
+          <td>10Y美債</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            4.66
+          </td>
+          <td>
+            
+              <span class="up">
+                +0.65%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>美元指數</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            99.12
+          </td>
+          <td>
+            
+              <span class="up">
+                +0.2%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>台幣匯率</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            31.81
+          </td>
+          <td>
+            
+              <span class="dn">
+                -0.09%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>VIX</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            15.21
+          </td>
+          <td>
+            
+              <span class="dn">
+                -1.55%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>黃金</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            4673.6
+          </td>
+          <td>
+            
+              <span class="up">
+                +0.77%
+              </span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td>原油</td>
+          <td style="color:var(--text); font-variant-numeric: tabular-nums;">
+            81.64
+          </td>
+          <td>
+            
+              <span class="dn">
+                -0.87%
+              </span>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+  </div>
+
+  
+  <div class="inner-divider"></div>
+  <div class="inner-header">昨日強弱勢</div>
+  <div class="movers-3col">
+
+    <!-- 台股漲幅 -->
+    <div>
+      <div class="movers-col-title" style="color:var(--green)">🇹🇼 台股 ▲</div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">聯茂</span>
+          <span class="mover-cn">6213</span>
+          <span class="mover-pct up">+10.0%</span>
+        </div>
+        
+        <div class="mover-news">↳ <a href="https://money.udn.com/money/story/5612/9716437" target="_blank">全球搶銅大戰 線纜廠得利 業界看好華新、大亞等迎庫存增值、電…</a></div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">玉晶光</span>
+          <span class="mover-cn">3406</span>
+          <span class="mover-pct up">+10.0%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">眾達-KY</span>
+          <span class="mover-cn">4977</span>
+          <span class="mover-pct up">+10.0%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">州巧</span>
+          <span class="mover-cn">3543</span>
+          <span class="mover-pct up">+10.0%</span>
+        </div>
+        
+        <div class="mover-news">↳ <a href="https://money.udn.com/money/story/11162/9716421" target="_blank">SpaceX 星艦發射基地預算衝3.2兆 昇達科、啟碁、同欣…</a></div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">健策</span>
+          <span class="mover-cn">3653</span>
+          <span class="mover-pct up">+9.99%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">大立光</span>
+          <span class="mover-cn">3008</span>
+          <span class="mover-pct up">+9.97%</span>
+        </div>
+        
+        <div class="mover-news">↳ <a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE9hOUh4U3hMZE9kUlBvaEd3WDFzVFVTSkFSVl9aeV9zYWFwdkpwMFVPYzFnMWs3OVBFeDl4NFJuLXN6WFduS3VyUk1MaVFYNktQZ2c?oc=5" target="_blank">台股狂飆663點收45832！大立光6290元創天價 高價股…</a></div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">AMAX-KY</span>
+          <span class="mover-cn">6933</span>
+          <span class="mover-pct up">+9.97%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">創意</span>
+          <span class="mover-cn">3443</span>
+          <span class="mover-pct up">+9.96%</span>
+        </div>
+        
+        <div class="mover-news">↳ <a href="https://ec.ltn.com.tw/article/paper/1768278" target="_blank">熱門股》通吃ASIC大單 創意寫新天價…</a></div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">沛爾生醫-創</span>
+          <span class="mover-cn">6949</span>
+          <span class="mover-pct up">+9.96%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">蔚華科</span>
+          <span class="mover-cn">3055</span>
+          <span class="mover-pct up">+9.96%</span>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 台股跌幅 -->
+    <div>
+      <div class="movers-col-title" style="color:var(--red)">🇹🇼 台股 ▼</div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">陽明</span>
+          <span class="mover-cn">2609</span>
+          <span class="mover-pct dn">-9.43%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">萬海</span>
+          <span class="mover-cn">2615</span>
+          <span class="mover-pct dn">-9.09%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">裕民</span>
+          <span class="mover-cn">2606</span>
+          <span class="mover-pct dn">-7.69%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">長榮</span>
+          <span class="mover-cn">2603</span>
+          <span class="mover-pct dn">-6.1%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">台驊控股</span>
+          <span class="mover-cn">2636</span>
+          <span class="mover-pct dn">-5.92%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">四維航</span>
+          <span class="mover-cn">5608</span>
+          <span class="mover-pct dn">-5.8%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">鈺邦</span>
+          <span class="mover-cn">6449</span>
+          <span class="mover-pct dn">-5.36%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">新興</span>
+          <span class="mover-cn">2605</span>
+          <span class="mover-pct dn">-5.04%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">慧洋-KY</span>
+          <span class="mover-cn">2637</span>
+          <span class="mover-pct dn">-4.5%</span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">永擎</span>
+          <span class="mover-cn">7711</span>
+          <span class="mover-pct dn">-4.27%</span>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 美股 -->
+    <div>
+      <div class="movers-col-title" style="color:var(--purple)">🇺🇸 美股</div>
+      
+      <div class="movers-sub up">▲ 漲幅</div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">WDC</span>
+          <span class="mover-cn">威騰</span>
+          <span class="mover-pct up">+4.02%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">HPQ</span>
+          <span class="mover-cn">惠普</span>
+          <span class="mover-pct up">+3.39%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">STX</span>
+          <span class="mover-cn">希捷</span>
+          <span class="mover-pct up">+3.01%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">ORCL</span>
+          <span class="mover-cn">甲骨文</span>
+          <span class="mover-pct up">+2.84%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">PLTR</span>
+          <span class="mover-cn">帕蘭泰爾</span>
+          <span class="mover-pct up">+2.76%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="movers-sub dn" style="margin-top:8px;">▼ 跌幅</div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">LLY</span>
+          <span class="mover-cn">禮來</span>
+          <span class="mover-pct dn">-3.59%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">INTU</span>
+          <span class="mover-cn">直覺軟體</span>
+          <span class="mover-pct dn">-3.24%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">NKE</span>
+          <span class="mover-cn">耐吉</span>
+          <span class="mover-pct dn">-2.25%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">MRK</span>
+          <span class="mover-cn">默克</span>
+          <span class="mover-pct dn">-2.14%</span>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="mover-item">
+        <div class="mover-row">
+          <span class="mover-name">LOW</span>
+          
+          <span class="mover-pct dn">-1.98%</span>
+        </div>
+        
+      </div>
+      
+      
+    </div>
+
+  </div>
+  
+</div>
+
+<!-- 台股新聞 -->
+
+
+<div class="card">
+  <div class="section-title green">台股動態</div>
+  
+  <div class="inner-header">市場動態</div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[經濟日報 · 10:45]</div>
+    
+    <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE56Ym90aFFtZVp0VkhVWGJuR3hEYkNwdzJsQVBsOURSM21FaFJwX1ZBZFhOX0JBLVBlZmRHaWFlS0FDMDZtYVIxQzRoSUxNMHc0OGVScS12MHViUdIBX0FVX3lxTFBjbTZ6SmVocGMwYWw2MzZwTEwwM0llUlFjTVB2MWhBUlVmSlQwN0ZMZWRwRXY2YThIQllaQTJEYWVheHZLVHV5SHNXRUhRaUh6amE2SV9qclNKRzBmS0pZ" target="_blank">外資回頭股匯雙漲 新台幣收31.818元寫逾2個月新高</a>
+    <span class="tag tag-tw">外資動向</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[Yahoo股市 · 09:54]</div>
+    
+    <a href="https://news.google.com/rss/articles/CBMioAJBVV95cUxNUW9BRXdEcTVZZjRCQ294RGZzb1p5ZGVaRmM5X2RUa2UtSTJ4bnRjT0VfMEszRlNBUFVldkdYMGNwUUJZSE5yRml6S01vanMzTGFIZVJSRURUZ1Uyem5qdTEyZHBtT0g2aHh5bmxvbDNnQklLSzdDb3RPWE9rT1hjUFZ3Vk1LU1NtSmRXSVJwb1FPRjl5S1NLbWE4NktFcEdhSTczOHZvU0Vtb2lsQ0M4bU5nbzJaZEoxbm5tNFhDaXF6el9xSVZOb2xBZ2wwRXNYb0h1bzJPZGtVV05hdmJ4dnVXV0g1LUlVMUFMbl9wVEZVdGRqMXlJcy15Z0tVRDUxMmZ6eVFiU3JiNDVFTDZiZzMtMGZ3X01INDBIaFJoX3I?oc=5" target="_blank">台股大跌重傷券商！7月稅後少賺156億元</a>
+    <span class="tag tag-tw">台股整體</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[Yahoo新聞 · 10:20]</div>
+    
+    <a href="https://news.google.com/rss/articles/CBMi-AJBVV95cUxNdk42eGg1TDVsWjU4TXRPSnUtSVRoeWRVTzdJSTB5TGk2bHUwQzJMU1lUTV9zbVNKMXJJSVVyTlBteVhSRl9JVmFLcTQ1WVdxYlVMOTMxazlzYmluZElZbFdnMlJkd2toTzFJbjVNM2R4RTFDbV95bkliaXFFUVpkSTRQLV91YVRaWFVkZ2lrRVBaMlkwYXpZY3I1WWt5SGdEZHZDdkRleW9rMkRzZWJHVEZNXzhOWUQ4cHJTYlk2M1pMeEwyMWxQV0dXOTh2MzhyVVhKZDdoSV9xSVRfSnJEaWc4MTRCUkYyemRkdXZsUnlIblllZUh4WnB5aENDaUplS1dTSTlqdHB5OXppQXZpcEw4bXNwVXFHTFhaeXNMSS1YNzM4cVJIS2IyWjU1ZkdUaEo0eWw4elkydWc0Q1RpM1ZrOGVEem1wdGtMMDRhaFZ6OFYyTmdpbzRDRzVCXzhpX3ItWF9IQzdoZk9rSXBXM0w1VjZWVlRQ?oc=5" target="_blank">台股再上演V轉！逾百萬人笑不出來 「這檔」慘遭外資投信雙殺</a>
+    <span class="tag tag-tw">台股走勢</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[三立新聞 · 17:25]</div>
+    
+    <a href="https://news.google.com/rss/articles/CBMiS0FVX3lxTE04Q0RuVFdaWF9JNFRwLVlYN0VwR1BDc3RnM251Wm9ZT2tncjZGdWpZM05PWlRCVXRNdXVPS1hkWVdIYmUxRWZNMnNEQQ?oc=5" target="_blank">航海王又回來了！外資一週掃進這兩檔逾23萬張 成吸金焦點</a>
+    <span class="tag tag-tw">外資動向</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[太報 TaiSounds · 10:41]</div>
+    
+    <a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1rYTNjWmIxX0ttTG85TTBsUnFyTmdLR1hnaHEzSWRkejZKeEZYODEwVTJObjd0X1MxWHd5QjJYWWNuQnRmYjJONTFlVFdvYVJDbnBWejhrdVNuRWtU?oc=5" target="_blank">台股反轉+外資回補！新台幣站穩31.8字頭、創兩個月新高</a>
+    <span class="tag tag-tw">台幣匯率</span>
+  </div>
+  
+  
+  
+  <div class="inner-divider"></div>
+  <div class="inner-header">台股產業動態</div>
+  <div class="industry-grid">
+    
+    <div>
+      <div class="industry-name">半導體製造</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[經濟日報 · 22:09]</div>
+        
+        <a href="https://money.udn.com/money/story/5612/9716705" target="_blank">半導體夥伴先後來台設廠、擴大投資 解密台積電2030年在地採購關鍵的七大數字</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">IC設計</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[自由財經 · 21:30]</div>
+        
+        <a href="https://ec.ltn.com.tw/article/paper/1768278" target="_blank">熱門股》通吃ASIC大單 創意寫新天價</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">被動元件</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[科技新報 · 23:00]</div>
+        
+        <a href="https://technews.tw/2026/08/27/frenzy-computing-power-metals-challenges-supply-stability-tantalum-capacitors-new-energy-vehicles/" target="_blank">瘋搶「算力金屬」，新能源車鉭電容供應穩定度面臨挑戰</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">AI伺服器/ODM</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[經濟日報 · 17:35]</div>
+        
+        <a href="https://money.udn.com/money/story/11162/9716421" target="_blank">SpaceX 星艦發射基地預算衝3.2兆 昇達科、啟碁、同欣電吃補</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[經濟日報 · 17:23]</div>
+        
+        <a href="https://money.udn.com/money/story/11162/9716424" target="_blank">太空訂單豐厚 助攻台廠</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">電源/散熱</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[科技新報 · 23:20]</div>
+        
+        <a href="https://finance.technews.tw/2026/08/27/us-ac-filtration-giant-buys-german-fan-maker-5-4b-ai-data-center-demand/" target="_blank">看準 AI 資料中心需求，美國空調濾淨大廠 54 億美元收購德國風扇大廠</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">重電/電力</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[經濟日報 · 16:57]</div>
+        
+        <a href="https://money.udn.com/money/story/5612/9716437" target="_blank">全球搶銅大戰 線纜廠得利 業界看好華新、大亞等迎庫存增值、電網訂單等紅利</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[經濟日報 · 16:50]</div>
+        
+        <a href="https://money.udn.com/money/story/5612/9716442" target="_blank">銅價飆新高 線纜業三強手握大單 受惠多</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">外資動態</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[經濟日報]</div>
+        
+        <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE56Ym90aFFtZVp0VkhVWGJuR3hEYkNwdzJsQVBsOURSM21FaFJwX1ZBZFhOX0JBLVBlZmRHaWFlS0FDMDZtYVIxQzRoSUxNMHc0OGVScS12MHViUdIBX0FVX3lxTFBjbTZ6SmVocGMwYWw2MzZwTEwwM0llUlFjTVB2MWhBUlVmSlQwN0ZMZWRwRXY2YThIQlhaQTJEYWVheHZLVHV5SHNXRUhRaUh6amE2SV9qclNKRzBmS0pZ" target="_blank">外資回頭股匯雙漲 新台幣收31.818元寫逾2個月新高</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+
+
+<!-- 美股 & 總經 -->
+
+
+<div class="card">
+  <div class="section-title purple">美股 &amp; 總經</div>
+  
+  <div class="inner-header">整體動態</div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[Bloomberg · 22:10]</div>
+    
+    <a href="https://www.bloomberg.com/news/articles/2026-08-26/nasdaq-futures-rise-on-bullish-nvidia-sales-growth-markets-wrap" target="_blank">Nasdaq Futures, Asia Stocks Rise on Nvidia Outlook: Markets Wrap</a>
+    <span class="tag tag-us">美股走勢</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[NYT Business · 16:24]</div>
+    
+    <a href="https://www.nytimes.com/2026/08/26/business/economy/inflation-pce.html" target="_blank">PCE Index Shows Inflation Remained Elevated in July Amid High Energy Costs</a>
+    <span class="tag tag-us">物價指數</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[Bloomberg · 23:48]</div>
+    
+    <a href="https://www.bloomberg.com/news/articles/2026-08-26/gold-consolidates-above-4-600-as-investors-weigh-fed-rate-path" target="_blank">Gold Consolidates Above $4,600 as Investors Weigh Fed Rate Path</a>
+    <span class="tag tag-us">商品市場</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[CNBC · 00:15]</div>
+    
+    <a href="https://www.cnbc.com/2026/08/26/trump-lisa-cook-federal-reserve.html" target="_blank">Fed Gov Lisa Cook's lawyer fires back at Trump's renewed threat to oust her</a>
+    <span class="tag tag-us">Fed政策</span>
+  </div>
+  
+  <div class="news-item">
+    
+    <div class="news-meta">[Bloomberg · 22:02]</div>
+    
+    <a href="https://www.bloomberg.com/news/articles/2026-08-26/latest-oil-market-news-and-analysis-for-aug-27" target="_blank">Latest Oil Market News and Analysis for Aug. 27</a>
+    <span class="tag tag-us">原油市場</span>
+  </div>
+  
+  
+  
+  <div class="inner-divider"></div>
+  <div class="inner-header">美股產業動態</div>
+  <div class="industry-grid">
+    
+    <div>
+      <div class="industry-name">半導體(美)</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[BBC Business · 21:49]</div>
+        
+        <a href="https://www.bbc.co.uk/news/articles/ce871n7lyvlo?at_medium=RSS&at_campaign=rss" target="_blank">Nvidia revenue doubles on continued AI demand</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[Bloomberg Tech · 23:04]</div>
+        
+        <a href="https://www.bloomberg.com/news/articles/2026-08-26/nvidia-steps-back-into-china-market-with-first-h200-chip-sales" target="_blank">Nvidia Steps Back Into China Market With First H200 Chip Sales</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[Bloomberg Tech · 20:12]</div>
+        
+        <a href="https://www.bloomberg.com/news/articles/2026-08-26/nvidia-estimate-topping-forecast-fails-to-wow-investors" target="_blank">Nvidia Predicts AI-Fueled Sales Surge Will Extend Into 2028</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">記憶體(美)</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[Bloomberg Tech · 00:06]</div>
+        
+        <a href="https://www.bloomberg.com/news/articles/2026-08-27/kioxia-plans-new-chip-facility-in-japan-to-meet-ai-memory-demand" target="_blank">Kioxia Plans New Chip Facility in Japan to Meet AI Memory Demand</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">Big Tech(美)</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[BBC Business · 21:27]</div>
+        
+        <a href="https://www.bbc.co.uk/news/articles/cd68q3wynnqo?at_medium=RSS&at_campaign=rss" target="_blank">Meta to pay up to $18bn to settle claims its platforms harm children</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[CNBC · 21:17]</div>
+        
+        <a href="https://www.cnbc.com/2026/08/26/meta-social-media-trial-settlement.html" target="_blank">Meta settles social media addiction case with California, other states for $16.7 billion</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[CNBC · 22:39]</div>
+        
+        <a href="https://www.cnbc.com/2026/08/26/salesforce-crm-q2-earnings-report-2027.html" target="_blank">Salesforce stock jumps 12% on AI growth and Anthropic investment gain</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">軟體/AI(美)</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[CNBC · 21:27]</div>
+        
+        <a href="https://www.cnbc.com/2026/08/26/okta-okta-earnings-q2-2027.html" target="_blank">Okta pops 20% after topping estimates as AI threat spikes demand for identity security</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[CNBC · 22:20]</div>
+        
+        <a href="https://www.cnbc.com/2026/08/26/crowdstrike-crwd-earnings-q2-2027.html" target="_blank">CrowdStrike jumps 11% on record second quarter as 'Mythos moment' drives AI cyber wave</a>
+      </div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[TechCrunch · 23:47]</div>
+        
+        <a href="https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/" target="_blank">Amazon just tripled its order of Nvidia chips over 'surging demand'</a>
+      </div>
+      
+    </div>
+    
+    <div>
+      <div class="industry-name">生技(美)</div>
+      
+      <div class="news-item">
+        
+        <div class="news-meta">[NYT Business · 18:03]</div>
+        
+        <a href="https://www.nytimes.com/2026/08/26/science/pancreatic-cancer-daraxonrasib-approval.html" target="_blank">F.D.A. Approves the Drug Daraxonrasib That's Poised to Transform Pancreatic Cancer</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+
+
+<!-- 個股焦點 -->
+
+<div class="card">
+  <div class="section-title amber">個股焦點</div>
+  
+  <div class="inner-header">熱門話題股</div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">大立光(3008)</div>
+    <div class="hot-reason">昨日漲幅+9.97%，股價創天價6290元，AI產業景氣及高階鏡頭需求支撐</div>
+    
+    <div class="hot-news">
+      
+      <div class="hot-news-row">
+        <span class="hot-news-arrow">↳</span>
+        <a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE9hOUh4U3hMZE9kUlBvaEd3WDFzVFVTSkFSVl9aeV9zYWFwdkpwMFVPYzFnMWs3OVBFeDl4NFJuLXN6WFduS3VyUk1MaVFYNktQZ2c?oc=5" target="_blank">台股狂飆663點收45832！大立光6290元創天價 高價股集體衝鋒</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">玉晶光(3406)</div>
+    <div class="hot-reason">昨日漲幅+10.00%，光學鏡頭廠受惠於AI攝像與半導體設備需求</div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">創意(3443)</div>
+    <div class="hot-reason">昨日漲幅+9.96%，通吃ASIC大單，寫新天價，AI晶片設計強勁需求</div>
+    
+    <div class="hot-news">
+      
+      <div class="hot-news-row">
+        <span class="hot-news-arrow">↳</span>
+        <a href="https://ec.ltn.com.tw/article/paper/1768278" target="_blank">熱門股》通吃ASIC大單 創意寫新天價</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">聯茂(6213)</div>
+    <div class="hot-reason">昨日漲幅+10.00%，被動元件廠受惠全球銅價飆升與電網訂單</div>
+    
+    <div class="hot-news">
+      
+      <div class="hot-news-row">
+        <span class="hot-news-arrow">↳</span>
+        <a href="https://money.udn.com/money/story/5612/9716437" target="_blank">全球搶銅大戰 線纜廠得利 業界看好華新、大亞等迎庫存增值、電網訂單等紅利</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">陽明(2609)</div>
+    <div class="hot-reason">昨日跌幅-9.43%，航運股大幅下跌，反映海運市場景氣調整與K型分化</div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">萬海(2615)</div>
+    <div class="hot-reason">昨日跌幅-9.09%，航運雙雄同步大跌，國際海運市場面臨需求預期下調</div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">NVIDIA(NVDA)</div>
+    <div class="hot-reason">財報宣示2027年營收將增70%，盤後漲4%惟市場期望高企，估值調整進行中</div>
+    
+    <div class="hot-news">
+      
+      <div class="hot-news-row">
+        <span class="hot-news-arrow">↳</span>
+        <a href="https://www.bbc.co.uk/news/articles/ce871n7lyvlo" target="_blank">Nvidia revenue doubles on continued AI demand</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">Meta Platforms(META)</div>
+    <div class="hot-reason">斥資18-17.1億美元和解未成年人成癮訴訟，大幅減輕法律風險但年齡認證技術實效性待考</div>
+    
+    <div class="hot-news">
+      
+      <div class="hot-news-row">
+        <span class="hot-news-arrow">↳</span>
+        <a href="https://www.wired.com/story/meta-will-pay-up-to-dollar167-billion-to-settle-its-social-media-harms-case-and-thats-just-for-starters/" target="_blank">Meta to Pay Up to $18bn to Settle Its Social Media Harms Case—and That's Not All</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">CrowdStrike(CRWD)</div>
+    <div class="hot-reason">Q2財報與營收指引超預期，AI資安威脅升溫驅動需求，股價漲11%</div>
+    
+    <div class="hot-news">
+      
+      <div class="hot-news-row">
+        <span class="hot-news-arrow">↳</span>
+        <a href="https://www.marketwatch.com/story/crowdstrikes-stock-soars-after-ai-fuels-the-cybersecurity-companys-best-quarter-ever-6aeae1d5?mod=mw_rss_topstories" target="_blank">CrowdStrike's stock soars after AI fuels the cybersecurity company's 'best quarter in history'</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <div class="hot-stock">
+    <div class="hot-company">Salesforce(CRM)</div>
+    <div class="hot-reason">與Anthropic擴大合作、AI營收成長動力強勁，盤後漲12%，應對SaaS競爭壓力</div>
+    
+    <div class="hot-news">
+      
+      <div class="hot-news-row">
+        <span class="hot-news-arrow">↳</span>
+        <a href="https://www.marketwatch.com/story/salesforces-stock-surges-as-ai-momentums-fuel-revenue-growth-8c96eef3?mod=mw_rss_topstories" target="_blank">Salesforce's stock gets an Anthropic boost — and more highlights from earnings</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="inner-divider"></div>
+  <div class="inner-header">潛力關注股</div>
+  
+  <div class="radar-item">
+    <div class="radar-company">雷虎科技(無人機產業)</div>
+    <div class="radar-reason">俄烏戰後無人機成關鍵產品，台灣無人機產業與半導體結合開啟新商機</div>
+    <div class="radar-basis">
+      依據：<a href="https://news.google.com/rss/articles/CBMisAJBVV95cUxOQmF3aEd4eTVrNC1jOFFITE5UcUY4eFp2ZFNUZHctSWlEa25xS3ppNmo5cC1xSTB3X0h2Rk1WbnNzMjZNOENNcHlJTHJ3WFl1QjlqM2dOTWZmUEpEWkhzZnpCSXBya29uZFppbkI4T3QzbnhBSWZHRUZvelduYlVWN2FGUUVtZUJ6SEZHWjNHZVZmSjVvZlpKUmduYXE2T0Y1UFpoRnY0SVhMckNRYkdsb2dBMVRIMWdvTVhRd2M4aWxRZ2FnVzRYRloxbmZYZl85VnF5bjJNbGpEbUVuWmJLcEpkSU53eHZxeVRmbC1oRzJDQjBNUlN5aGtFWFdXUmpZYXRFMkJFWER1U0dkODdzc3VROVE1ZTRabnFwZHFqNjliSmVBdVh1VG9nRDZ2LUJZ" target="_blank" style="color:var(--blue-link);text-decoration:none;">台灣大紀元報導雷虎董座談無人機與半導體結合的發展契機</a>
+    </div>
+  </div>
+  
+  <div class="radar-item">
+    <div class="radar-company">中華電信、中華資安</div>
+    <div class="radar-reason">中華電推多元照護『心頻寬』服務；中華資安技術奪國際大獎，企業數位轉型與資安需求提升</div>
+    <div class="radar-basis">
+      依據：<a href="https://money.udn.com/money/story/5612/9716445" target="_blank" style="color:var(--blue-link);text-decoration:none;">經濟日報報導中華電信與資安相關新聞</a>
+    </div>
+  </div>
+  
+  <div class="radar-item">
+    <div class="radar-company">建材業(房市相關)</div>
+    <div class="radar-reason">房市急凍導致接單大減六成，建材業倒閉危機浮現，產業景氣面臨嚴峻考驗</div>
+    <div class="radar-basis">
+      依據：<a href="https://money.udn.com/money/story/5612/9716432" target="_blank" style="color:var(--blue-link);text-decoration:none;">經濟日報房市急凍報導</a>
+    </div>
+  </div>
+  
+  <div class="radar-item">
+    <div class="radar-company">OpenAI(自研晶片Jalapeño)</div>
+    <div class="radar-reason">OpenAI首款自研推論晶片Jalapeño表現與Nvidia GB200相當，挑戰英偉達獨佔局面</div>
+    <div class="radar-basis">
+      依據：<a href="https://www.ithome.com.tw/news/178457" target="_blank" style="color:var(--blue-link);text-decoration:none;">iThome與TechOrange報導OpenAI自研晶片進展</a>
+    </div>
+  </div>
+  
+  <div class="radar-item">
+    <div class="radar-company">Anthropic、Perplexity(AI計算基礎設施)</div>
+    <div class="radar-reason">Anthropic與Nscale達成45B美元合作，Perplexity與Nvidia推Portable Computer，AI邊緣計算成新趨勢</div>
+    <div class="radar-basis">
+      依據：<a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/" target="_blank" style="color:var(--blue-link);text-decoration:none;">TechCrunch與VentureBeat報導AI計算基礎設施合作</a>
+    </div>
+  </div>
+  
+  <div class="radar-item">
+    <div class="radar-company">Apple(M6晶片、Mac mini AI工作站)</div>
+    <div class="radar-reason">Apple M6首採2奈米製程，Mac mini AI效能相比前代提升4倍，本地AI agent時代到來</div>
+    <div class="radar-basis">
+      依據：<a href="https://techorange.com/2026/08/27/ai-semiconductor-revenue-apple-m6-2nm/?utm_source=rss&utm_medium=feed&utm_campaign=techorange_rss" target="_blank" style="color:var(--blue-link);text-decoration:none;">TechOrange報導Apple M6與新款Mac mini發布</a>
+    </div>
+  </div>
+  
+  
+</div>
+
+
+<!-- 本週關注 -->
+
+<div class="card">
+  <div class="section-title">本週關注</div>
+  
+  
+  
+  <div class="inner-header">美股財報</div>
+  
+  <div class="cal-item">
+    <span class="cal-date">2026-09-02</span>
+    <span class="cal-name">AVGO · 博通</span>
+    <span class="cal-timing">盤後</span>
+  </div>
+  
+  
+</div>
+
+
+<div class="footer">由 Claude Haiku 自動生成 &nbsp;·&nbsp; TWSE + yfinance + RSS + Finnhub &nbsp;·&nbsp; 2026年08月27日</div>
+</body>
+</html>
